@@ -45,8 +45,9 @@ return packer.startup(function(use)
 	use "nvim-lua/popup.nvim"	-- An implementation of the Popup API from vim in Neovim
 	use "nvim-lua/plenary.nvim"	-- Useful lua functions used ny lots of plugins
 	use {'iamcco/markdown-preview.nvim', run = 'cd app && yarn install', cmd = 'MarkdownPreview'} -- Markdown preview
-	use "vim-airline/vim-airline"
-	use "vim-airline/vim-airline-themes"
+	use "vim-airline/vim-airline" -- Vim powerline
+	use "vim-airline/vim-airline-themes" -- Airline themes
+	use "windwp/nvim-autopairs" -- Autopairs, integrates with both cmp and treesitter
 
 	-- Themes
 	use 'overcache/NeoSolarized'
@@ -78,7 +79,7 @@ return packer.startup(function(use)
 	-- Treesitter
 	use {
 		"nvim-treesitter/nvim-treesitter",
-		--run = ":TSUpdate",
+		run = ":TSUpdate",
 	}
 	use "p00f/nvim-ts-rainbow"
 
