@@ -127,6 +127,11 @@ _G.packer_plugins = {
     path = "/Users/papy/.local/share/nvim/site/pack/packer/opt/markdown-preview.nvim",
     url = "https://github.com/iamcco/markdown-preview.nvim"
   },
+  ["norminette-vim"] = {
+    loaded = true,
+    path = "/Users/papy/.local/share/nvim/site/pack/packer/start/norminette-vim",
+    url = "https://github.com/alexandregv/norminette-vim"
+  },
   ["nvim-autopairs"] = {
     loaded = true,
     path = "/Users/papy/.local/share/nvim/site/pack/packer/start/nvim-autopairs",
@@ -171,6 +176,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/papy/.local/share/nvim/site/pack/packer/start/popup.nvim",
     url = "https://github.com/nvim-lua/popup.nvim"
+  },
+  syntastic = {
+    loaded = true,
+    path = "/Users/papy/.local/share/nvim/site/pack/packer/start/syntastic",
+    url = "https://github.com/vim-syntastic/syntastic"
   },
   ["telescope-media-files.nvim"] = {
     loaded = true,
