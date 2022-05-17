@@ -48,6 +48,8 @@ return packer.startup(function(use)
 	use "vim-airline/vim-airline" -- Vim powerline
 	--use "vim-airline/vim-airline-themes" -- Airline themes
 	use "windwp/nvim-autopairs" -- Autopairs, integrates with both cmp and treesitter
+	use "akinsho/bufferline.nvim" -- Nice bufferline
+	use "moll/vim-bbye"	-- Useful plugin preventig from quitting after closing last buffer
 
 	-- Themes
 	--use 'overcache/NeoSolarized'

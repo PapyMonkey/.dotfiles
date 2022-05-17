@@ -12,6 +12,7 @@ require "user.telescope"
 require "user.treesitter"
 require "user.autopairs"
 require "user.nvim-tree"
+require "user.bufferline"
 
 -- 42-plugins parameters
 require "user.header"
