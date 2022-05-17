@@ -46,11 +46,12 @@ return packer.startup(function(use)
 	use "nvim-lua/plenary.nvim"	-- Useful lua functions used ny lots of plugins
 	use {'iamcco/markdown-preview.nvim', run = 'cd app && yarn install', cmd = 'MarkdownPreview'} -- Markdown preview
 	use "vim-airline/vim-airline" -- Vim powerline
-	use "vim-airline/vim-airline-themes" -- Airline themes
+	--use "vim-airline/vim-airline-themes" -- Airline themes
 	use "windwp/nvim-autopairs" -- Autopairs, integrates with both cmp and treesitter
 
 	-- Themes
-	use 'overcache/NeoSolarized'
+	--use 'overcache/NeoSolarized'
+	use 'wojciechkepka/vim-github-dark'
 
 	-- 42
 	use 'vim-syntastic/syntastic' -- Norminette dependency

@@ -44,6 +44,6 @@ end
 
 vim.cmd "set whichwrap+=<,>,[,],h,l"
 vim.cmd [[set iskeyword+=-]]
-vim.cmd "let g:airline#extensions#tabline#enabled = 1"
-vim.cmd "let g:airline_solarized_bg='dark'"
+--vim.cmd "let g:airline#extensions#tabline#enabled = 1"
+--vim.cmd "let g:airline_solarized_bg='dark'"
 vim.cmd [[set formatoptions-=cro]] -- TODO: this doesn't seem to work

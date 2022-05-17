@@ -79,11 +79,6 @@ _G.packer_plugins = {
     path = "/Users/papy/.local/share/nvim/site/pack/packer/start/LuaSnip",
     url = "https://github.com/L3MON4D3/LuaSnip"
   },
-  NeoSolarized = {
-    loaded = true,
-    path = "/Users/papy/.local/share/nvim/site/pack/packer/start/NeoSolarized",
-    url = "https://github.com/overcache/NeoSolarized"
-  },
   ["cmp-buffer"] = {
     loaded = true,
     path = "/Users/papy/.local/share/nvim/site/pack/packer/start/cmp-buffer",
@@ -212,10 +207,10 @@ _G.packer_plugins = {
     path = "/Users/papy/.local/share/nvim/site/pack/packer/start/vim-airline",
     url = "https://github.com/vim-airline/vim-airline"
   },
-  ["vim-airline-themes"] = {
+  ["vim-github-dark"] = {
     loaded = true,
-    path = "/Users/papy/.local/share/nvim/site/pack/packer/start/vim-airline-themes",
-    url = "https://github.com/vim-airline/vim-airline-themes"
+    path = "/Users/papy/.local/share/nvim/site/pack/packer/start/vim-github-dark",
+    url = "https://github.com/wojciechkepka/vim-github-dark"
   }
 }
 
