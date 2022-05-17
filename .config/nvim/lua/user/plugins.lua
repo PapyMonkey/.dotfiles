@@ -57,8 +57,8 @@ return packer.startup(function(use)
 	use 'wojciechkepka/vim-github-dark'
 
 	-- 42
-	use 'vim-syntastic/syntastic' -- Norminette dependency
-	use 'alexandregv/norminette-vim' -- 42 mandatory 'norminette'
+	-- use 'vim-syntastic/syntastic' -- Norminette dependency
+	-- use 'alexandregv/norminette-vim' -- 42 mandatory 'norminette'
 	use "42Paris/42header"	-- 42 mandatory header
 
 	-- cmp plugins
