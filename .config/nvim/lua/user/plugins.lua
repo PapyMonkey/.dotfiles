@@ -85,6 +85,10 @@ return packer.startup(function(use)
 	}
 	use "p00f/nvim-ts-rainbow"
 
+	-- NvimTree
+	use 'kyazdani42/nvim-web-devicons'
+	use 'kyazdani42/nvim-tree.lua'
+
 	-- Git
 	use "lewis6991/gitsigns.nvim"
 
