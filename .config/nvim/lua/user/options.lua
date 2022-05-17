@@ -44,9 +44,6 @@ end
 
 vim.cmd "set whichwrap+=<,>,[,],h,l"
 vim.cmd [[set iskeyword+=-]]
--- 42 Header options
-	vim.cmd "let g:user42 = 'aguiri'"
-	vim.cmd "let g:mail42 = 'aguiri@student.42nice.fr'"
 vim.cmd "let g:airline#extensions#tabline#enabled = 1"
 vim.cmd "let g:airline_solarized_bg='dark'"
 vim.cmd [[set formatoptions-=cro]] -- TODO: this doesn't seem to work
