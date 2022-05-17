@@ -136,6 +136,16 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/papy/.local/share/nvim/site/pack/packer/start/popup.nvim",
     url = "https://github.com/nvim-lua/popup.nvim"
+  },
+  ["vim-airline"] = {
+    loaded = true,
+    path = "/Users/papy/.local/share/nvim/site/pack/packer/start/vim-airline",
+    url = "https://github.com/vim-airline/vim-airline"
+  },
+  ["vim-airline-themes"] = {
+    loaded = true,
+    path = "/Users/papy/.local/share/nvim/site/pack/packer/start/vim-airline-themes",
+    url = "https://github.com/vim-airline/vim-airline-themes"
   }
 }
 

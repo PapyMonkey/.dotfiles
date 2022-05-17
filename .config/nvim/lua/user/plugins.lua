@@ -42,12 +42,12 @@ packer.init {
 return packer.startup(function(use)
 	-- My plugins here
 	use "wbthomason/packer.nvim"						-- Have packer manage itself
-	use "nvim-lua/popup.nvim"							-- An implementation of the Popup API from vim in Neovim
+	use "nvim-lua/popup.nvim"	-- An implementation of the Popup API from vim in Neovim
 	use "nvim-lua/plenary.nvim"						-- Useful lua functions used ny lots of plugins
 	use "42Paris/42header"							-- 42 mandatory header
 	use {'iamcco/markdown-preview.nvim', run = 'cd app && yarn install', cmd = 'MarkdownPreview'} -- Markdown preview
-	-- use "vim-airline/vim-airline"
-	-- use "vim-airline/vim-airline-themes"
+	use "vim-airline/vim-airline"
+	use "vim-airline/vim-airline-themes"
 
 	-- cmp plugins
 	use "hrsh7th/nvim-cmp" -- The completion plugin
