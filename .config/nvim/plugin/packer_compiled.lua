@@ -197,6 +197,11 @@ _G.packer_plugins = {
     path = "/Users/papy/.local/share/nvim/site/pack/packer/start/popup.nvim",
     url = "https://github.com/nvim-lua/popup.nvim"
   },
+  ["presence.nvim"] = {
+    loaded = true,
+    path = "/Users/papy/.local/share/nvim/site/pack/packer/start/presence.nvim",
+    url = "https://github.com/andweeb/presence.nvim"
+  },
   ["telescope-media-files.nvim"] = {
     loaded = true,
     path = "/Users/papy/.local/share/nvim/site/pack/packer/start/telescope-media-files.nvim",

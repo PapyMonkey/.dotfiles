@@ -51,6 +51,7 @@ return packer.startup(function(use)
 	use "numToStr/Comment.nvim" -- Easily comment stuff
 	use "akinsho/bufferline.nvim" -- Nice bufferline
 	use "moll/vim-bbye"	-- Useful plugin preventig from quitting after closing last buffer
+	use "andweeb/presence.nvim" -- Discord rich presence integration
 
 	-- Themes
 	--use 'overcache/NeoSolarized'
