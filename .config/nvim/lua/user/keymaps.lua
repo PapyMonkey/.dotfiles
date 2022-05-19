@@ -35,7 +35,7 @@ keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
 keymap("n", "<leader>v", ":vsplit<CR>", opts)
 
 -- Manage buffers
-keymap("n", "<leader>w", ":Bdelete<CR>", opts)
+keymap("n", "<leader>x", ":Bw<CR>", opts)
 
 -- Navigate buffers
 keymap("n", "<S-l>", ":bnext<CR>", opts)
