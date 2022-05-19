@@ -35,7 +35,7 @@ keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
 keymap("n", "<leader>v", ":vsplit<CR>", opts)
 
 -- Manage buffers
-keymap("n", "<leader>w", ":Bdelete<CR>", opts)
+keymap("n", "<leader>x", ":Bw<CR>", opts)
 
 -- Navigate buffers
 keymap("n", "<S-l>", ":bnext<CR>", opts)
@@ -70,8 +70,20 @@ keymap("t", "<C-k>", "<C-\\><C-N><C-w>k", term_opts)
 keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", term_opts)
 
 -- Telescope --
+local utils = require('telescope.utils')
+local builtin = require('telescope.builtin')
+_G.project_files = function()
+    local _, ret, _ = utils.get_os_command_output({ 'git', 'rev-parse', '--is-inside-work-tree' })
+    if ret == 0 then
+        builtin.git_files(require('telescope.themes').get_dropdown({ previewer = false }))
+    else
+        builtin.find_files(require('telescope.themes').get_dropdown({ previewer = false }))
+    end
+end
+vim.api.nvim_set_keymap('n', '<leader>f', '<cmd>lua project_files()<CR>', {noremap=true})
 -- keymap("n", "<leader>f", "<cmd>Telescope find_files<cr>", opts)
-keymap("n", "<leader>f", "<cmd>lua require'telescope.builtin'.find_files(require('telescope.themes').get_dropdown({ previewer = false }))<cr>", opts)
+keymap("n", "<leader>F", "<cmd>lua require'telescope.builtin'.find_files(require('telescope.themes').get_dropdown({ previewer = false }))<cr>", opts)
+-- keymap("n", "<leader>F", "<cmd>lua require'telescope.builtin'.git_files(require('telescope.themes').get_dropdown({ previewer = false }))<cr>", opts)
 keymap("n", "<c-t>", "<cmd>Telescope live_grep<cr>", opts)
 
 -- Nvimtree
