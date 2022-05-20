@@ -88,3 +88,6 @@ keymap("n", "<c-t>", "<cmd>Telescope live_grep<cr>", opts)
 
 -- Nvimtree
 keymap("n", "<leader>e", ":NvimTreeToggle<cr>", opts)
+
+-- Glow (Markdown previewer)
+keymap("n", "<leader>p", ":Glow<CR>", opts)

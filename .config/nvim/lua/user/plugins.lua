@@ -52,6 +52,7 @@ return packer.startup(function(use)
 	use "akinsho/bufferline.nvim" -- Nice bufferline
 	use "moll/vim-bbye"	-- Useful plugin preventig from quitting after closing last buffer
 	use "andweeb/presence.nvim" -- Discord rich presence integration
+	use {"ellisonleao/glow.nvim", branch = 'main'} -- Markdown preview
 
 	-- Themes
 	--use 'overcache/NeoSolarized'
