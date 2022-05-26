@@ -15,6 +15,7 @@ require "user.comment"
 require "user.nvim-tree"
 require "user.bufferline"
 require "user.presence"
+require "user.powerline"
 
 -- 42-plugins parameters
 require "user.header"

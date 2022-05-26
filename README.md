@@ -81,3 +81,4 @@
 - [akinsho/bufferline.nvim](https://github.com/akinsho/bufferline.nvim) - Nice bufferline.
 - [moll/vim-bbye](https://github.com/moll/vim-bbye) - Plugin preventig from quitting after closing last buffer.
 - [andweeb/presence.nvim](https://github.com/andweeb/presence.nvim) - Discord rich presence integration.
+- [nvim-lualine/lualine.nvim](https://github.com/nvim-lualine/lualine.nvim) - Fast and easy to configure neovim statusline plugin.
