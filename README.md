@@ -17,6 +17,8 @@
 3. [Tmux plugins](#Tmux-plugins)
 4. [Shell setup](#Shell-setup)
 
+---
+
 ## Contents
 
 - [git](https://git-scm.com) config - Version control system.
