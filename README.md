@@ -109,6 +109,9 @@
 
 - [Exa](https://the.exa.website/install/linux) - `ls` replacement.
 - [z](https://the.exa.website/agkozak/zsh-z) - Jump quickly to directories that you have visited "frecently".
+- [bat](https://github.com/sharkdp/bat) - A cat(1) clone with wings.
+- [btop](https://github.com/aristocratos/btop) - A nice monitor of resources.
+- [rmlint](https://github.com/sahib/rmlint) - Extremely fast tool to remove duplicates and other lint from your filesystem.
 - [HUB](https://github.com/github/hub) - A command-line tool that makes git easier to use with GitHub.
 - [Commitizen](https://github.com/commitizen/cz-cli) - Better commit forms.
 - [powerlevel10k](https://github.com/romkatv/powerlevel10k) - A powerline theme for zsh.
