@@ -2,5 +2,10 @@
 *.swp
 *.swo
 
+# oh-my-zsh
+.oh-my-zsh
+
 # Custom
 .config/tmux/plugins/tmux-*
+.config/nvim/plugin
+.config/DS_Store
