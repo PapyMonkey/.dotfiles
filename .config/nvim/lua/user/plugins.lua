@@ -55,11 +55,11 @@ return packer.startup(function(use)
 	-- Themes
 	--use 'overcache/NeoSolarized'
 	use 'wojciechkepka/vim-github-dark'
-	use "RRethy/nvim-base16"
+	-- use "RRethy/nvim-base16"
 
 	-- 42
-	-- use 'vim-syntastic/syntastic' -- Norminette dependency
-	-- use 'alexandregv/norminette-vim' -- 42 mandatory 'norminette'
+	use 'vim-syntastic/syntastic' -- Norminette dependency
+	use 'alexandregv/norminette-vim' -- 42 mandatory 'norminette'
 	use "42Paris/42header"	-- 42 mandatory header
 
 	-- cmp plugins
@@ -104,6 +104,8 @@ return packer.startup(function(use)
 	-- Markdown
 	-- use {'iamcco/markdown-preview.nvim', run = 'cd app && yarn install', cmd = 'MarkdownPreview'} -- Markdown preview
 	use {"ellisonleao/glow.nvim", branch = 'main'} -- Markdown preview
+	use "savq/paq-nvim";
+    use "frabjous/knap";
 
 	-- Powerline
 	use {
