@@ -1,0 +1,6 @@
+# Vim
+*.swp
+*.swo
+
+# Custom
+.config/tmux/plugins/tmux-*
