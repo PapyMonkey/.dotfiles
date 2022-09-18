@@ -16,6 +16,9 @@ packer_compiled.lua
 package-lock.json
 package.json
 
+# node
+node_modules
+
 # Custom
 .config/nvim/plugin/*
 .config/DS_Store
