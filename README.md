@@ -73,6 +73,7 @@
 ### Git
 
 - [lewis6991/gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim) - Git integration for buffers.
+- [sindrets/diffview.nvim](https://github.com/sindrets/diffview.nvim) - Interface for easily cycling through diffs for all modified files 
 
 ### Doge
 
@@ -101,17 +102,20 @@
 
 ## Tmux plugins
 
-- [tmux-plugins/tpm](https:/github.com/tmux-plugins/tpm) - Tmux Plugin Manager.
-- [tmux-plugins/tmux-resurrect](https:/github.com/tmux-plugins/tmux-resurrect) - Plugin to persists tmux environment across system restarts. 
-- [tmux-plugins/tmux-continuum](https:/github.com/tmux-plugins/tmux-continuum) - Continuous saving of tmux environment and automatic restore when tmux is started.  
+- [tmux-plugins/tpm](https://github.com/tmux-plugins/tpm) - [tmux](https://github.com/tmux/tmux) plugin manager.
+- [tmux-plugins/tmux-resurrect](https://github.com/tmux-plugins/tmux-resurrect) - Plugin to persists [tmux](https://github.com/tmux/tmux) environment across system restarts. 
+- [tmux-plugins/tmux-continuum](https://github.com/tmux-plugins/tmux-continuum) - Continuous saving of [tmux](https://github.com/tmux/tmux) environment and automatic restore when [tmux](https://github.com/tmux/tmux) is started.  
 
 ## Shell setup
 
-- [Exa](https://the.exa.website/install/linux) - `ls` replacement.
-- [z](https://the.exa.website/agkozak/zsh-z) - Jump quickly to directories that you have visited "frecently".
+- [oh-my-zsh](https://github.com/ohmyzsh/ohmyzsh) - Framework for managing [zsh](https://www.zsh.org) configuration.
+- [powerlevel10k](https://github.com/romkatv/powerlevel10k) - A powerline theme for [zsh](https://www.zsh.org).
+- [Exa](https://github.com/ogham/exa) - `ls` replacement.
+- [z](https://github.com/agkozak/zsh-z) - Jump quickly to directories that you have visited "frecently".
 - [bat](https://github.com/sharkdp/bat) - A cat(1) clone with wings.
 - [btop](https://github.com/aristocratos/btop) - A nice monitor of resources.
 - [rmlint](https://github.com/sahib/rmlint) - Extremely fast tool to remove duplicates and other lint from your filesystem.
 - [HUB](https://github.com/github/hub) - A command-line tool that makes git easier to use with GitHub.
+- [figlet](https://github.com/cmatsuoka/figlet) - A command-line tool that creates large characters out of ordinary screen characters.
+- [nvm](https://github.com/nvm-sh/nvm) - `node` version nanager.
 - [Commitizen](https://github.com/commitizen/cz-cli) - Better commit forms.
-- [powerlevel10k](https://github.com/romkatv/powerlevel10k) - A powerline theme for zsh.
