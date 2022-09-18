@@ -80,14 +80,21 @@ _G.project_files = function()
         builtin.find_files(require('telescope.themes').get_dropdown({ previewer = false }))
     end
 end
-vim.api.nvim_set_keymap('n', '<leader>f', '<cmd>lua project_files()<CR>', {noremap=true})
 -- keymap("n", "<leader>f", "<cmd>Telescope find_files<cr>", opts)
-keymap("n", "<leader>F", "<cmd>lua require'telescope.builtin'.find_files(require('telescope.themes').get_dropdown({ previewer = false }))<cr>", opts)
--- keymap("n", "<leader>F", "<cmd>lua require'telescope.builtin'.git_files(require('telescope.themes').get_dropdown({ previewer = false }))<cr>", opts)
-keymap("n", "<leader>g", "<cmd>Telescope live_grep<cr>", opts)
+keymap('n', '<leader>f', '<cmd>lua project_files()<CR>', opts)
+-- keymap("n", "<leader>F", "<cmd>lua require'telescope.builtin'.find_files(require('telescope.themes').get_dropdown({ previewer = false }))<cr>", opts)
+keymap("n", "<leader>g", ":Telescope live_grep<cr>", opts)
+keymap('n', '<leader>b', ':Telescope buffers<CR>', opts)
+keymap('n', '<leader>u', ":Telescope oldfiles<CR>", opts)
+keymap('n', '<leader>d', ":Telescope lsp_definitions<CR>", opts)
+keymap('n', '<leader>r', ":Telescope lsp_references<CR>", opts)
+keymap('n', '<leader>i', ":Telescope lsp_implementations<CR>", opts)
 
 -- Nvimtree
 keymap("n", "<leader>e", ":NvimTreeToggle<cr>", opts)
 
 -- Glow (Markdown previewer)
 keymap("n", "<leader>p", ":Glow<CR>", opts)
+
+-- Diffviewer
+keymap('n', '<leader>h', ":DiffviewOpen<CR>", opts)

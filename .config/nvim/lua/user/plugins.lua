@@ -47,7 +47,6 @@ return packer.startup(function(use)
 	-- use "vim-airline/vim-airline" -- Vim powerline
 	-- use "vim-airline/vim-airline-themes" -- Airline themes
 	use "windwp/nvim-autopairs" -- Autopairs, integrates with both cmp and treesitter
-	use "numToStr/Comment.nvim" -- Easily comment stuff
 	use "akinsho/bufferline.nvim" -- Nice bufferline
 	use "moll/vim-bbye"	-- Useful plugin preventig from quitting after closing last buffer
 	use "andweeb/presence.nvim" -- Discord rich presence integration
@@ -106,6 +105,20 @@ return packer.startup(function(use)
 	use {"ellisonleao/glow.nvim", branch = 'main'} -- Markdown preview
 	use "savq/paq-nvim";
     use "frabjous/knap";
+
+	-- Comment toggler
+	use {
+		'numToStr/Comment.nvim', -- Easily comment stuff
+		config = function()
+			require('Comment').setup()
+		end
+	}
+
+	-- Git diff
+	use {
+		'sindrets/diffview.nvim',
+		requires = 'nvim-lua/plenary.nvim'
+	}
 
 	-- Powerline
 	use {
