@@ -37,6 +37,10 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- $Locker --nofork
 # and nm-applet is a desktop environment-independent system tray GUI for it.
 exec --no-startup-id nm-applet
 
+# Multiple screen setup
+exec --no-startup-id xrandr --output DP-1-1 --mode 2560x1440 --above eDP-1
+exec --no-startup-id xrandr --output DP-2 --mode 2560x1440 --right-of DP-1-1
+
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
@@ -62,7 +66,7 @@ exec xinput set-prop "VEN_0488:00 0488:1024 Touchpad" "libinput Tapping Enabled"
 exec "xautolock -detectsleep -time 3 -locker $Locker"
 
 # keybinding to lock screen
-bindsym $mod+Control+l exec --no-startup-id $Locker --no-fork
+bindsym $mod+Control+home exec --no-startup-id $Locker --no-fork
 bindsym $mod+Control+s exec --no-startup-id $Locker && systemctl suspend
 
 # start a terminal
@@ -141,6 +145,11 @@ set $ws8 "8: VM"
 set $ws9 "9: VPN"
 set $ws10 "10: Music"
 
+# workspaces on screens
+workspace $ws3 output DVI-1-1
+workspace $ws5 output DVI-2
+workspace $ws8 output DVI-2
+
 # switch to workspace
 bindsym $mod+1 workspace $ws1
 bindsym $mod+2 workspace $ws2
@@ -167,6 +176,12 @@ bindsym $mod+Shift+0 move container to workspace $ws10
 
 # alt tab behaviour
 bindsym $mod+Tab workspace back_and_forth
+
+# move focused workspace around screens
+bindsym $mod+Control+h move workspace to output left
+bindsym $mod+Control+j move workspace to output down
+bindsym $mod+Control+k move workspace to output up
+bindsym $mod+Control+l move workspace to output right
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
