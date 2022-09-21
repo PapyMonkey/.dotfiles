@@ -1,25 +1,25 @@
-require "user.options"
-require "user.keymaps"
-require "user.plugins"
+require "papy.options"
+require "papy.keymaps"
+require "papy.plugins"
 
 -- Themes parameters
-require "user.colorscheme"
+require "papy.colorscheme"
 
 -- Plugins parameters
-require "user.cmp"
-require "user.lsp"
-require "user.telescope"
-require "user.treesitter"
-require "user.autopairs"
-require "user.comment"
-require "user.nvim-tree"
-require "user.bufferline"
-require "user.presence"
-require "user.powerline"
+require "papy.cmp"
+require "papy.lsp"
+require "papy.telescope"
+require "papy.treesitter"
+require "papy.autopairs"
+require "papy.comment"
+require "papy.nvim-tree"
+require "papy.bufferline"
+require "papy.presence"
+require "papy.powerline"
 
 -- 42-plugins parameters
-require "user.header"
-require "user.norminette"
+require "papy.header"
+require "papy.norminette"
 
 -- Git-plugins parameters
-require "user.gitsigns"
+require "papy.gitsigns"
