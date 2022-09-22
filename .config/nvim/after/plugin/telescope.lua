@@ -88,6 +88,19 @@ telescope.setup {
 			"%.pdf",
 		},
 	},
+    pickers = {
+        buffers = {
+            initial_mode = "normal",
+            sort_lastused = true,
+        },
+        grep_string = {
+            search = {vim.fn.expand("<cword>")},
+        },
+        oldfiles = {
+            initial_mode = "normal",
+            sort_lastused = true,
+        },
+    },
 	extensions = {
 		media_files = {
 			-- filetypes whitelist

@@ -22,7 +22,7 @@ local nmap = Remap.nmap
 	nnoremap("<leader>v", ":vsplit<CR>")
 
 	-- Manage buffers
-	nnoremap("<leader>x", ":Bw<CR>")
+	nnoremap("<leader>x", ":bw<CR>")
 
 	-- Navigate buffers
 	nnoremap("<S-l>", ":bnext<CR>")
