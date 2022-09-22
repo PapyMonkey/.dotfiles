@@ -24,7 +24,11 @@ exec --no-startup-id \
 #font pango:DejaVu Sans Mono 8
 
 # i3lock setup
-set $Locker i3lock --ignore-empty-password --show-failed-attempts --color=000000 && sleep 1
+set $Locker i3lock\
+	--ignore-empty-password\
+	--show-failed-attempts\
+	-i $HOME/.config/i3/data/weigth.png\
+	&& sleep 1
 
 # The combination of xss-lock, nm-applet and pactl is a popular choice, so
 # they are included here as an example. Modify as you see fit.
