@@ -118,6 +118,8 @@ alias lt="exa -T"
 alias cat="batcat -p"
 alias catt="batcat"
 alias g=git
+alias vi=nvim
+alias vim=nvim
 
 # Set VIM commands mode
 bindkey -v
