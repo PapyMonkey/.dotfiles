@@ -47,6 +47,7 @@ return packer.startup(function(use)
 	use "windwp/nvim-autopairs" -- Autopairs, integrates with both cmp and treesitter
 	use "akinsho/bufferline.nvim" -- Nice bufferline
 	use "andweeb/presence.nvim" -- Discord rich presence integration
+	use "ThePrimeagen/harpoon" -- Jump directly to files
 
 	-- Themes
 	use 'wojciechkepka/vim-github-dark'
