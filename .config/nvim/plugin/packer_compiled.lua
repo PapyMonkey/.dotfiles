@@ -140,15 +140,10 @@ _G.packer_plugins = {
     path = "/home/aguiri/.local/share/nvim/site/pack/packer/start/gitsigns.nvim",
     url = "https://github.com/lewis6991/gitsigns.nvim"
   },
-  ["glow.nvim"] = {
+  harpoon = {
     loaded = true,
-    path = "/home/aguiri/.local/share/nvim/site/pack/packer/start/glow.nvim",
-    url = "https://github.com/ellisonleao/glow.nvim"
-  },
-  knap = {
-    loaded = true,
-    path = "/home/aguiri/.local/share/nvim/site/pack/packer/start/knap",
-    url = "https://github.com/frabjous/knap"
+    path = "/home/aguiri/.local/share/nvim/site/pack/packer/start/harpoon",
+    url = "https://github.com/ThePrimeagen/harpoon"
   },
   ["lualine.nvim"] = {
     loaded = true,
@@ -215,11 +210,6 @@ _G.packer_plugins = {
     path = "/home/aguiri/.local/share/nvim/site/pack/packer/start/packer.nvim",
     url = "https://github.com/wbthomason/packer.nvim"
   },
-  ["paq-nvim"] = {
-    loaded = true,
-    path = "/home/aguiri/.local/share/nvim/site/pack/packer/start/paq-nvim",
-    url = "https://github.com/savq/paq-nvim"
-  },
   ["plenary.nvim"] = {
     loaded = true,
     path = "/home/aguiri/.local/share/nvim/site/pack/packer/start/plenary.nvim",
@@ -249,11 +239,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/aguiri/.local/share/nvim/site/pack/packer/start/telescope.nvim",
     url = "https://github.com/nvim-telescope/telescope.nvim"
-  },
-  ["vim-bbye"] = {
-    loaded = true,
-    path = "/home/aguiri/.local/share/nvim/site/pack/packer/start/vim-bbye",
-    url = "https://github.com/moll/vim-bbye"
   },
   ["vim-doge"] = {
     loaded = true,
