@@ -1,100 +1,28 @@
-local opts = { noremap = true, silent = true }
+local Keybinds = {}
 
-local term_opts = { silent = true }
-
--- Shorten function name
-local keymap = vim.api.nvim_set_keymap
-
---Remap space as leader key
-keymap("", "<Space>", "<Nop>", opts)
-vim.g.mapleader = " "
-vim.g.maplocalleader = " "
-
--- Modes
---   normal_mode = "n",
---   insert_mode = "i",
---   visual_mode = "v",
---   visual_block_mode = "x",
---   term_mode = "t",
---   command_mode = "c",
-
--- Normal --
--- Better window navigation
-keymap("n", "<C-h>", "<C-w>h", opts)
-keymap("n", "<C-j>", "<C-w>j", opts)
-keymap("n", "<C-k>", "<C-w>k", opts)
-keymap("n", "<C-l>", "<C-w>l", opts)
-
--- Resize with arrows
-keymap("n", "<C-Up>", ":resize +2<CR>", opts)
-keymap("n", "<C-Down>", ":resize -2<CR>", opts)
-keymap("n", "<C-Left>", ":vertical resize -2<CR>", opts)
-keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
-
--- Manage windows
-keymap("n", "<leader>v", ":vsplit<CR>", opts)
-
--- Manage buffers
-keymap("n", "<leader>x", ":Bw<CR>", opts)
-
--- Navigate buffers
-keymap("n", "<S-l>", ":bnext<CR>", opts)
-keymap("n", "<S-h>", ":bprevious<CR>", opts)
-
--- Insert --
--- Press jk fast to enter
-keymap("i", "jk", "<ESC>", opts)
-
--- Visual --
--- Stay in indent mode
-keymap("v", "<", "<gv", opts)
-keymap("v", ">", ">gv", opts)
-
--- Move text up and down
-keymap("v", "<A-j>", ":m .+1<CR>==", opts)
-keymap("v", "<A-k>", ":m .-2<CR>==", opts)
-keymap("v", "p", '"_dP', opts)
-
--- Visual Block --
--- Move text up and down
-keymap("x", "J", ":move '>+1<CR>gv-gv", opts)
-keymap("x", "K", ":move '<-2<CR>gv-gv", opts)
-keymap("x", "<A-j>", ":move '>+1<CR>gv-gv", opts)
-keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
-
--- Terminal --
--- Better terminal navigation
-keymap("t", "<C-h>", "<C-\\><C-N><C-w>h", term_opts)
-keymap("t", "<C-j>", "<C-\\><C-N><C-w>j", term_opts)
-keymap("t", "<C-k>", "<C-\\><C-N><C-w>k", term_opts)
-keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", term_opts)
-
--- Telescope --
-local utils = require('telescope.utils')
-local builtin = require('telescope.builtin')
-_G.project_files = function()
-    local _, ret, _ = utils.get_os_command_output({ 'git', 'rev-parse', '--is-inside-work-tree' })
-    if ret == 0 then
-        builtin.git_files(require('telescope.themes').get_dropdown({ previewer = false }))
-    else
-        builtin.find_files(require('telescope.themes').get_dropdown({ previewer = false }))
+local function bind(mode, outer_opts)
+    outer_opts = outer_opts or {noremap = true}
+    return function(lhs, rhs, opts)
+        opts = vim.tbl_extend("force",
+            outer_opts,
+            opts or {}
+        )
+        vim.keymap.set(mode, lhs, rhs, opts)
     end
 end
--- keymap("n", "<leader>f", "<cmd>Telescope find_files<cr>", opts)
-keymap('n', '<leader>f', '<cmd>lua project_files()<CR>', opts)
--- keymap("n", "<leader>F", "<cmd>lua require'telescope.builtin'.find_files(require('telescope.themes').get_dropdown({ previewer = false }))<cr>", opts)
-keymap("n", "<leader>g", ":Telescope live_grep<cr>", opts)
-keymap('n', '<leader>b', ':Telescope buffers<CR>', opts)
-keymap('n', '<leader>u', ":Telescope oldfiles<CR>", opts)
-keymap('n', '<leader>d', ":Telescope lsp_definitions<CR>", opts)
-keymap('n', '<leader>r', ":Telescope lsp_references<CR>", opts)
-keymap('n', '<leader>i', ":Telescope lsp_implementations<CR>", opts)
 
--- Nvimtree
-keymap("n", "<leader>e", ":NvimTreeToggle<cr>", opts)
+--	Modes :
+-- 		normal_mode = "n",
+--		insert_mode = "i",
+--		visual_mode = "v",
+--		visual_block_mode = "x",
+--		term_mode = "t",
+--		command_mode = "c",
 
--- Glow (Markdown previewer)
-keymap("n", "<leader>p", ":Glow<CR>", opts)
+Keybinds.nmap = bind("n", {noremap = false})
+Keybinds.nnoremap = bind("n")
+Keybinds.vnoremap = bind("v")
+Keybinds.xnoremap = bind("x")
+Keybinds.inoremap = bind("i")
 
--- Diffviewer
-keymap('n', '<leader>h', ":DiffviewOpen<CR>", opts)
+return Keybinds

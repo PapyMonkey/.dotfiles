@@ -89,6 +89,7 @@ return packer.startup(function(use)
 	}
 	use "p00f/nvim-ts-rainbow"
 	use "JoosepAlviste/nvim-ts-context-commentstring"
+	use 'nvim-treesitter/nvim-treesitter-context'
 
 	-- NvimTree
 	use 'kyazdani42/nvim-web-devicons'
