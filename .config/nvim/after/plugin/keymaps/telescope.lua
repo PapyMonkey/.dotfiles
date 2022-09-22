@@ -12,15 +12,34 @@ _G.project_files = function()
         builtin.find_files(require('telescope.themes').get_dropdown({ previewer = false }))
     end
 end
--- keymap("n", "<leader>f", "<cmd>Telescope find_files<cr>", opts)
-nnoremap("<leader>f", '<cmd>lua project_files()<CR>')
--- nnoremap("<leader>F", "<cmd>lua require'telescope.builtin'.find_files(require('telescope.themes').get_dropdown({ previewer = false }))<cr>")
-nnoremap("<leader>g", ":Telescope live_grep<cr>")
-nnoremap("<leader>G", ":Telescope grep_string<cr>")
-nnoremap("<leader>b", ':Telescope buffers<CR>')
 nnoremap("<leader>u", ":Telescope oldfiles<CR>")
-nnoremap("<leader>d", ":Telescope lsp_definitions<CR>")
-nnoremap("<leader>r", ":Telescope lsp_references<CR>")
-nnoremap("<leader>i", ":Telescope lsp_implementations<CR>")
+--[[ nnoremap("<leader>d", ":Telescope lsp_definitions<CR>") ]]
+--[[ nnoremap("<leader>r", ":Telescope lsp_references<CR>") ]]
+--[[ nnoremap("<leader>i", ":Telescope lsp_implementations<CR>") ]]
 
 nnoremap("<C-p>", ":Telescope")
+
+nnoremap("<leader>ps", function()
+    require('telescope.builtin').grep_string({ search = vim.fn.input("Grep For > ")})
+end)
+nnoremap("<C-p>", function()
+    require('telescope.builtin').git_files()
+end)
+nnoremap("<Leader>pf", function()
+    require('telescope.builtin').find_files()
+end)
+
+nnoremap("<leader>pw", function()
+    require('telescope.builtin').grep_string { search = vim.fn.expand("<cword>") }
+end)
+nnoremap("<leader>pb", function()
+    require('telescope.builtin').buffers()
+end)
+nnoremap("<leader>vh", function()
+    require('telescope.builtin').help_tags()
+end)
+
+-- TODO: Fix this immediately
+nnoremap("<leader>vwh", function()
+    require('telescope.builtin').help_tags()
+end)
