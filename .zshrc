@@ -87,7 +87,7 @@ zstyle ':omz:update' mode reminder  # just remind me to update when it's time
 
 source $ZSH/oh-my-zsh.sh
 
-plugins=(git z)
+plugins=(git zsh-z)
 
 # User configuration
 
