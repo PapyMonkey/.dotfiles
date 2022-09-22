@@ -46,7 +46,7 @@ nvim_tree.setup {
 		"dashboard",
 		"alpha",
 	},
-	--auto_close = true,
+	auto_close = false,
 	open_on_tab = false,
 	hijack_cursor = false,
 	update_cwd = true,
@@ -71,7 +71,7 @@ nvim_tree.setup {
 	git = {
 		enable = true,
 		ignore = true,
-		timeout = 50,
+		timeout = 500,
 	},
 	view = {
 		width = 30,
