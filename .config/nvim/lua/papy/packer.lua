@@ -44,17 +44,12 @@ return packer.startup(function(use)
 	use "wbthomason/packer.nvim"	-- Have packer manage itself
 	use "nvim-lua/popup.nvim"	-- An implementation of the Popup API from vim in Neovim
 	use "nvim-lua/plenary.nvim"	-- Useful lua functions used ny lots of plugins
-	-- use "vim-airline/vim-airline" -- Vim powerline
-	-- use "vim-airline/vim-airline-themes" -- Airline themes
 	use "windwp/nvim-autopairs" -- Autopairs, integrates with both cmp and treesitter
 	use "akinsho/bufferline.nvim" -- Nice bufferline
-	use "moll/vim-bbye"	-- Useful plugin preventig from quitting after closing last buffer
 	use "andweeb/presence.nvim" -- Discord rich presence integration
 
 	-- Themes
-	--use 'overcache/NeoSolarized'
 	use 'wojciechkepka/vim-github-dark'
-	-- use "RRethy/nvim-base16"
 
 	-- 42
 	use 'vim-syntastic/syntastic' -- Norminette dependency
@@ -66,9 +61,9 @@ return packer.startup(function(use)
 	use "hrsh7th/cmp-buffer" -- buffer completions
 	use "hrsh7th/cmp-path" -- path completions
 	use "hrsh7th/cmp-cmdline" -- cmdline completions
+    use "hrsh7th/cmp-nvim-lsp"
+    use "hrsh7th/cmp-nvim-lua"
 	use "saadparwaiz1/cmp_luasnip" -- snippet completions
-	use "hrsh7th/cmp-nvim-lsp"
-	use "hrsh7th/cmp-nvim-lua"
 
 	-- snippets
 	use "L3MON4D3/LuaSnip" --snippet engine
@@ -100,12 +95,6 @@ return packer.startup(function(use)
 
 	-- Doge
 	use "kkoomen/vim-doge"
-
-	-- Markdown
-	-- use {'iamcco/markdown-preview.nvim', run = 'cd app && yarn install', cmd = 'MarkdownPreview'} -- Markdown preview
-	use {"ellisonleao/glow.nvim", branch = 'main'} -- Markdown preview
-	use "savq/paq-nvim";
-    use "frabjous/knap";
 
 	-- Comment toggler
 	use {
