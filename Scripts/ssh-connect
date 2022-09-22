@@ -1,0 +1,35 @@
+#!/bin/bash
+
+# ***************************** V A R I A B L E S ******************************
+
+HOST_ARR=(
+"ncerndobedev6269.etv.nce.amadeus.net"
+"ncerndobedev6272.etv.nce.amadeus.net"
+"ncerndobedev6273.etv.nce.amadeus.net"
+"ncerndobedev6274.etv.nce.amadeus.net"
+"ncerndobedev6325.etv.nce.amadeus.net"
+"ncerndobedev6326.etv.nce.amadeus.net"
+"ncerndobedev6331.etv.nce.amadeus.net"
+"ncerndobedev6334.etv.nce.amadeus.net"
+)
+
+i=-1
+
+# ******************************** S C R I P T *********************************
+
+mkdir -p "$MOUNT_PATH"
+if [ "$(ls -A "$MOUNT_PATH")" ]
+then
+	printf "%s is not empty\n" "$MOUNT_PATH"
+	exit 42
+fi
+
+for host in "${HOST_ARR[@]}"
+do
+	((i+=1))
+	printf "%d : %s\n" $i "$host"
+done
+
+printf "Choose a VM (0 - %d) : " $i; read -r HOST_CHOICE
+
+ssh aguiri@"${HOST_ARR[$HOST_CHOICE]}"
