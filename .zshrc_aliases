@@ -1,0 +1,11 @@
+alias ls="ls -p -G --color=auto"
+alias la="ls -h -l -A --color=auto"
+alias ll="ls -h -l --color=auto"
+alias lla="ls -h -all --color=auto"
+alias lt="exa -T"
+# alias cd="z"
+alias cat="batcat -p"
+alias catt="batcat"
+alias g=git
+alias vi=nvim
+alias vim=nvim

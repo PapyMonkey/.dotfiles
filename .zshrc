@@ -14,18 +14,13 @@ export ZSH="$HOME/.oh-my-zsh"
 # Path to custom scripts
 export PATH=$HOME/Dotfiles/Scripts:$PATH
 
-# Set name of the theme to load --- if set to "random", it will
-# load a random theme each time oh-my-zsh is loaded, in which case,
-# to know which specific one was loaded, run: echo $RANDOM_THEME
-# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-#ZSH_THEME="robbyrussell"
-ZSH_THEME="powerlevel10k/powerlevel10k"
+# include .zshrc_amadeus if it exists
+if [ -f $HOME/.zshrc_amadeus ]
+then
+    . $HOME/.zshrc_amadeus
+fi
 
-# Set list of themes to pick from when loading at random
-# Setting this variable when ZSH_THEME=random will cause zsh to load
-# a theme from this variable instead of looking in $ZSH/themes/
-# If set to an empty array, this variable will have no effect.
-# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
+ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -109,17 +104,8 @@ plugins=(git zsh-z)
 # ------------------------------------------------------------------------------
 # ALIASES
 
-alias ls="ls -p -G --color=auto"
-alias la="ls -h -l -A --color=auto"
-alias ll="ls -h -l --color=auto"
-alias lla="ls -h -all --color=auto"
-alias lt="exa -T"
-# alias cd="z"
-alias cat="batcat -p"
-alias catt="batcat"
-alias g=git
-alias vi=nvim
-alias vim=nvim
+# include .zshrc_aliases if it exists
+[ -f $HOME/.zshrc_aliases ] && . $HOME/.zshrc_aliases
 
 # Set VIM commands mode
 bindkey -v

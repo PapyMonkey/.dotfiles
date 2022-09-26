@@ -22,3 +22,4 @@ node_modules
 # Custom
 .config/nvim/plugin/*
 .config/DS_Store
+.zshrc_amadeus
