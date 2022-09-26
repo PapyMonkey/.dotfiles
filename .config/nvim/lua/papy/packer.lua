@@ -48,6 +48,7 @@ return packer.startup(function(use)
 	use "akinsho/bufferline.nvim" -- Nice bufferline
 	use "andweeb/presence.nvim" -- Discord rich presence integration
 	use "ThePrimeagen/harpoon" -- Jump directly to files
+	use "tpope/vim-obsession" -- Continuously updated session files 
 
 	-- Themes
 	use 'wojciechkepka/vim-github-dark'

@@ -249,6 +249,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/aguiri/.local/share/nvim/site/pack/packer/start/vim-github-dark",
     url = "https://github.com/wojciechkepka/vim-github-dark"
+  },
+  ["vim-obsession"] = {
+    loaded = true,
+    path = "/home/aguiri/.local/share/nvim/site/pack/packer/start/vim-obsession",
+    url = "https://github.com/tpope/vim-obsession"
   }
 }
 

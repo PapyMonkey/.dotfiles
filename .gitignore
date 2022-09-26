@@ -1,6 +1,7 @@
 # Vim
 *.swp
 *.swo
+Session.vim
 
 # NeoVim configuration
 .config/nvim/plugin
