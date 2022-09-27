@@ -42,3 +42,5 @@
 
 [github]
 	user = papymonkey
+[safe]
+	directory = /home/aguiri/VM_Amadeus/PRY
