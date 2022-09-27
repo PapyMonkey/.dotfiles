@@ -11,6 +11,8 @@ nnoremap("<leader>pb", builtin.buffers)
 nnoremap("<leader>po", builtin.oldfiles)
 nnoremap("<leader>pt", builtin.treesitter)
 
+nnoremap("<leader>pp", ":Telescope neoclip<CR>")
+
 --[[ nnoremap("<leader>d", builtin.lsp_definitions) ]]
 --[[ nnoremap("<leader>r", builtin.lsp_references) ]]
 --[[ nnoremap("<leader>i", builtin.lsp_implementations) ]]

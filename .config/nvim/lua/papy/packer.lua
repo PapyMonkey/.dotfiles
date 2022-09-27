@@ -19,7 +19,7 @@ end
 vim.cmd [[
 	augroup packer_user_config
 	autocmd!
-	autocmd BufWritePost plugins.lua source <afile> | PackerSync
+	autocmd BufWritePost packer.lua source <afile> | PackerSync
 	augroup end
 ]]
 
@@ -49,6 +49,8 @@ return packer.startup(function(use)
 	use "andweeb/presence.nvim" -- Discord rich presence integration
 	use "ThePrimeagen/harpoon" -- Jump directly to files
 	use "tpope/vim-obsession" -- Continuously updated session files 
+	use "moll/vim-bbye" -- Close buffers without closing windows
+	use "mbbill/undotree" 
 
 	-- Themes
 	use 'wojciechkepka/vim-github-dark'
@@ -77,7 +79,18 @@ return packer.startup(function(use)
 
 	-- Telescope
 	use "nvim-telescope/telescope.nvim"
-	use 'nvim-telescope/telescope-media-files.nvim'
+	use "nvim-telescope/telescope-media-files.nvim"
+    use {
+        "nvim-telescope/telescope-fzf-native.nvim",
+        run = "make"
+    }
+    use {
+        "AckslD/nvim-neoclip.lua",
+        requires = {"nvim-telescope/telescope.nvim"},
+        config = function()
+            require("neoclip").setup()
+        end,
+    }
 
 	-- Treesitter
 	use {
@@ -113,10 +126,10 @@ return packer.startup(function(use)
 	}
 
 	-- Powerline
-	use {
+	--[[ use {
 	  "nvim-lualine/lualine.nvim",
 	  requires = { "kyazdani42/nvim-web-devicons", opt = true }
-	}
+	} ]]
 
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
