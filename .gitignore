@@ -4,14 +4,14 @@
 Session.vim
 
 # NeoVim configuration
-.config/nvim/plugin
+nvim/.config/nvim/plugin
 
 # oh-my-zsh
 .oh-my-zsh
 
 # tmux
-.config/tmux/plugins
-.config/tmux/resurrect
+tmux/.config/tmux/plugins
+tmux/.config/tmux/resurrect
 
 # Commitizen
 package-lock.json
@@ -21,6 +21,5 @@ package.json
 node_modules
 
 # Custom
-.config/nvim/plugin/*
 .config/DS_Store
 .zshrc_amadeus
