@@ -97,6 +97,15 @@ telescope.setup {
             initial_mode = "normal",
             sort_lastused = true,
         },
+        find_files = {
+            find_command = {
+                "rg",
+                "--files",
+                "--hidden",
+                "--glob",
+                "!.git/*"
+            },
+        },
     },
     extensions = {
         media_files = {
