@@ -1,12 +1,14 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # ***************************** V A R I A B L E S ******************************
 
-source colors.sh
-source variables.sh
-source functions.sh
+source "$(dirname "$0")"/colors.sh
+source "$(dirname "$0")"/variables.sh
+source "$(dirname "$0")"/functions.sh
 
-NVIM_PATH="$HOME/nvim"
+if [[ -z $NVIM_PATH ]]; then
+    NVIM_PATH="$HOME/nvim"
+fi
 
 # ******************************** S C R I P T *********************************
 

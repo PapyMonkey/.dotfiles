@@ -112,6 +112,7 @@ bindkey -v
 
 # Recursive search
 bindkey '^R' history-incremental-search-backward
+bindkey -s ^f "tmux-sessionizer\n"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

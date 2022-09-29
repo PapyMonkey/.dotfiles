@@ -1,10 +1,12 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 get_distrib()
 {
-	DISTRIB=$(cat /etc/*-release |\
-		grep "DISTRIB_ID" |\
-		cut -c12-)
+    if [[ -z $DISTRIB ]]; then
+        DISTRIB=$(cat /etc/*-release |\
+            grep "DISTRIB_ID" |\
+            cut -c12-)
+    fi
 }
 
 set_package_manager()

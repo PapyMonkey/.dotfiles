@@ -7,5 +7,6 @@ alias lt="exa -T"
 alias cat="batcat -p"
 alias catt="batcat"
 alias g=git
+alias dotf='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 alias vi=nvim
 alias vim=nvim

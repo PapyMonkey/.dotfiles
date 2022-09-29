@@ -50,7 +50,7 @@ return packer.startup(function(use)
 	use "ThePrimeagen/harpoon" -- Jump directly to files
 	use "tpope/vim-obsession" -- Continuously updated session files 
 	use "moll/vim-bbye" -- Close buffers without closing windows
-	use "mbbill/undotree" 
+	use "mbbill/undotree" -- Simple undo history visualizer
 
 	-- Themes
 	use 'wojciechkepka/vim-github-dark'
@@ -107,6 +107,10 @@ return packer.startup(function(use)
 
 	-- Git
 	use "lewis6991/gitsigns.nvim"
+    use {
+        'sindrets/diffview.nvim',
+        requires = 'nvim-lua/plenary.nvim'
+    }
 
 	-- Doge
 	use "kkoomen/vim-doge"
@@ -117,12 +121,6 @@ return packer.startup(function(use)
 		config = function()
 			require('Comment').setup()
 		end
-	}
-
-	-- Git diff
-	use {
-		'sindrets/diffview.nvim',
-		requires = 'nvim-lua/plenary.nvim'
 	}
 
 	-- Powerline
