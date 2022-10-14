@@ -13,13 +13,14 @@ _G.project_files = function()
     end
 end
 
-nnoremap("<C-p>", "<cmd>lua project_files()<CR>")
+nnoremap("<leader>pf", "<cmd>lua project_files()<CR>")
+nnoremap("<leader>pF", builtin.find_files)
 nnoremap("<leader>ps", builtin.live_grep)
-nnoremap("<Leader>pf", builtin.find_files)
 nnoremap("<leader>pw", builtin.grep_string)
 nnoremap("<leader>pb", builtin.buffers)
 nnoremap("<leader>po", builtin.oldfiles)
 nnoremap("<leader>pt", builtin.treesitter)
+nnoremap("<leader>pr", builtin.resume)
 
 nnoremap("<leader>pp", ":Telescope neoclip<CR>")
 

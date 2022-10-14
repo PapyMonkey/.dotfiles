@@ -106,6 +106,9 @@ telescope.setup {
                 "!.git/*"
             },
         },
+        resume = {
+            initial_mode = "insert",
+        },
     },
     extensions = {
         media_files = {
