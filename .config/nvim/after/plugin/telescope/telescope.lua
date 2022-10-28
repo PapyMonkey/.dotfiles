@@ -84,6 +84,10 @@ telescope.setup {
 			"%.class",
 			"%.pdf",
 		},
+		cache_picker = {
+            num_pickers = -1,
+            limit_entries = 1000,
+        },
 	},
     pickers = {
         buffers = {
@@ -96,6 +100,21 @@ telescope.setup {
         oldfiles = {
             initial_mode = "normal",
             sort_lastused = true,
+        },
+        find_files = {
+            find_command = {
+                "rg",
+                "--files",
+                "--hidden",
+                "--glob",
+                "!.git/*"
+            },
+        },
+        resume = {
+            initial_mode = "normal",
+        },
+        pickers = {
+            initial_mode = "normal",
         },
     },
     extensions = {
@@ -112,6 +131,14 @@ telescope.setup {
             case_mode = "smart_case",        -- or "ignore_case" or "respect_case"
             -- the default case_mode is "smart_case"
         },
+        file_browser = {
+            sorting_strategy = "ascending",
+            selection_strategy = "follow",
+            scroll_strategy = "limit",
+            initial_mode = "normal",
+            grouped = true,
+            hidden = true,
+        },
     },
 }
 
@@ -120,3 +147,4 @@ telescope.load_extension('harpoon')
 telescope.load_extension('fzf')
 telescope.load_extension('neoclip')
 --[[ telescope.load_extension('packer') ]]
+telescope.load_extension('file_browser')
