@@ -8,8 +8,6 @@ Feel free to draw on them if you need to, I try to keep this `README` as up to d
 ## Table of Contents
 
 1. [Quickstart](#Quickstart)
-	- [MacOS](#MacOS)
-	- [Linux](#Linux)
 2. [CLI tools](#CLI-tools)
 3. [Configuration files](#Configuration-files)
     - [Tmux](#Tmux)
@@ -26,18 +24,10 @@ Feel free to draw on them if you need to, I try to keep this `README` as up to d
 
 ## Quickstart 
 
-Given worflow clones the repository, installs necessary packages then creates the symbolic links using [GNU stow](https://www.gnu.org/software/stow/).
+Given worflow clones the repository then installs necessary packages.
 
-### MacOS
-
-```shell
-brew install git
-git clone git@github.com:papymonkey/.dotfiles.git ~/.dotfiles
-cd ~/.dotfiles
-install/MacOS/install.sh
-```
-
-### Linux
+<details>
+<summary>Linux</summary>
 
 This will depend on your Linux distribution, but in this example it will be [Debian](https://www.debian.org/)/[Ubuntu](https://ubuntu.com/).
 Just change the [software package management system](https://www.wikipedia.com/en/List_of_software_package_management_systems) if necessary.
@@ -45,9 +35,24 @@ Just change the [software package management system](https://www.wikipedia.com/e
 ```shell
 sudo apt update && apt upgrade -y && apt install -y git
 git clone git@github.com:papymonkey/.dotfiles.git ~/.dotfiles
-cd ~/.dotfiles
+git --git-dir=$HOME/.dotfiles --work-tree=$HOME checkout main .
+git --git-dir=$HOME/.dotfiles config --local status.showUntrackedFiles no
 install/Linux/install.sh
 ```
+
+</details>
+<details>
+<summary>MacOS</summary>
+
+```shell
+brew install git
+git clone git@github.com:papymonkey/.dotfiles.git ~/.dotfiles
+git --git-dir=$HOME/.dotfiles --work-tree=$HOME checkout main .
+git --git-dir=$HOME/.dotfiles config --local status.showUntrackedFiles no
+install/MacOS/install.sh
+```
+
+</details>
 
 ## CLI tools
 
@@ -143,3 +148,4 @@ install/Linux/install.sh
 - [wojciechkepka/vim-github-dark](https://github.com/wojciechkepka/vim-github-dark) - A dark GitHub theme for Vim and NeoVim.
 - [mbbill/undotree](https://github.com/mbbill/undotree) - Simple undo history visualizer.
 - [ThePrimeagen/harpoon](https://github.com/ThePrimeagen/harpoon) - Jump directly to files.
+- [toppair/peek.nvim](https://github.com/toppair/peek.nvim) - Markdown previewer.
