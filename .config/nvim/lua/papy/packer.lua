@@ -116,6 +116,12 @@ return packer.startup(function(use)
 	-- Doge
 	use "kkoomen/vim-doge"
 
+    -- Markdown
+    use {
+        "toppair/peek.nvim",
+        run = "deno task --quiet build:fast"
+    }
+
 	-- Comment toggler
 	use {
 		'numToStr/Comment.nvim', -- Easily comment stuff
