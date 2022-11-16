@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+
+# ***************************** V A R I A B L E S ******************************
+
+if [[ -z $MODE ]]; then
+    MODE="2560x1440"
+fi
+
+# ******************************** S C R I P T *********************************
+
+mapfile -t SCREENS < \
+    <(xrandr | grep "connected" | grep -v "disconnected" | sed "s/\s.*$//g")\
+    && SCREENS=("${SCREENS[@]:1}")
+
+printf "What do you want to do [(c)onnect/(d)isconnect] ? "; read -r CHOICE
+
+if [ "$CHOICE" == 'c' ]
+then
+    xrandr --output "${SCREENS[0]}" --mode "${MODE}" --above eDP-1
+    xrandr --output "${SCREENS[1]}" --mode "${MODE}" --right-of "${SCREENS[0]}"
+fi
+if [ "$CHOICE" == 'd' ]
+then
+    xrandr --output "${SCREENS[0]}" --off
+    xrandr --output "${SCREENS[1]}" --off
+fi

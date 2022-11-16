@@ -43,5 +43,4 @@ printf "Choose a VM (0 - %d) : " $i; read -r HOST_CHOICE
 sshfs -o auto_cache,reconnect\
 	-o Compression=no\
 	aguiri@"${HOST_ARR[$HOST_CHOICE]}":/remote/users/aguiri\
-	"$MOUNT_PATH"\
-	&& nvim "$MOUNT_PATH"
+	"$MOUNT_PATH"
