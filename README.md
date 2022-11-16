@@ -24,17 +24,35 @@ Feel free to draw on them if you need to, I try to keep this `README` as up to d
 
 ## Quickstart 
 
-Given worflow clones the bare repository.
+Given worflow clones the repository then installs necessary packages.
+
+<details>
+<summary>Linux</summary>
 
 This will depend on your Linux distribution, but in this example it will be [Debian](https://www.debian.org/)/[Ubuntu](https://ubuntu.com/).
 Just change the [software package management system](https://www.wikipedia.com/en/List_of_software_package_management_systems) if necessary.
 
 ```shell
 sudo apt update && apt upgrade -y && apt install -y git
-git clone --bare git@github.com:papymonkey/.dotfiles.git $HOME/.dotfiles
-git --git-dir=$HOME/.dotfiles/ config --local status.showUntrackedFiles no
-git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME checkout
+git clone git@github.com:papymonkey/.dotfiles.git ~/.dotfiles
+git --git-dir=$HOME/.dotfiles --work-tree=$HOME checkout main .
+git --git-dir=$HOME/.dotfiles config --local status.showUntrackedFiles no
+install/Linux/install.sh
 ```
+
+</details>
+<details>
+<summary>MacOS</summary>
+
+```shell
+brew install git
+git clone git@github.com:papymonkey/.dotfiles.git ~/.dotfiles
+git --git-dir=$HOME/.dotfiles --work-tree=$HOME checkout main .
+git --git-dir=$HOME/.dotfiles config --local status.showUntrackedFiles no
+install/MacOS/install.sh
+```
+
+</details>
 
 ## CLI tools
 

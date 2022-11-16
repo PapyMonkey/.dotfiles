@@ -11,6 +11,10 @@ export PATH=$HOME/bin:/usr/local/bin:$PATH
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
+# Path to deno installation.
+export DENO_INSTALL="/Users/papy/.deno"
+export PATH="$DENO_INSTALL/bin:$PATH"
+
 # Path to custom scripts
 export PATH=$PATH:$HOME/bin/.local/bin
 
