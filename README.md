@@ -8,8 +8,6 @@ Feel free to draw on them if you need to, I try to keep this `README` as up to d
 ## Table of Contents
 
 1. [Quickstart](#Quickstart)
-	- [MacOS](#MacOS)
-	- [Linux](#Linux)
 2. [CLI tools](#CLI-tools)
 3. [Configuration files](#Configuration-files)
     - [Tmux](#Tmux)
@@ -26,27 +24,16 @@ Feel free to draw on them if you need to, I try to keep this `README` as up to d
 
 ## Quickstart 
 
-Given worflow clones the repository, installs necessary packages then creates the symbolic links using [GNU stow](https://www.gnu.org/software/stow/).
-
-### MacOS
-
-```shell
-brew install git
-git clone git@github.com:papymonkey/.dotfiles.git ~/.dotfiles
-cd ~/.dotfiles
-install/MacOS/install.sh
-```
-
-### Linux
+Given worflow clones the bare repository.
 
 This will depend on your Linux distribution, but in this example it will be [Debian](https://www.debian.org/)/[Ubuntu](https://ubuntu.com/).
 Just change the [software package management system](https://www.wikipedia.com/en/List_of_software_package_management_systems) if necessary.
 
 ```shell
 sudo apt update && apt upgrade -y && apt install -y git
-git clone git@github.com:papymonkey/.dotfiles.git ~/.dotfiles
-cd ~/.dotfiles
-install/Linux/install.sh
+git clone --bare git@github.com:papymonkey/.dotfiles.git $HOME/.dotfiles
+git --git-dir=$HOME/.dotfiles/ config --local status.showUntrackedFiles no
+git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME checkout
 ```
 
 ## CLI tools
@@ -78,6 +65,8 @@ install/Linux/install.sh
 - [tmux-plugins/tpm](https://github.com/tmux-plugins/tpm) - [tmux](https://github.com/tmux/tmux) plugin manager.
 - [tmux-plugins/tmux-resurrect](https://github.com/tmux-plugins/tmux-resurrect) - Plugin to persists [tmux](https://github.com/tmux/tmux) environment across system restarts. 
 - [tmux-plugins/tmux-continuum](https://github.com/tmux-plugins/tmux-continuum) - Continuous saving of [tmux](https://github.com/tmux/tmux) environment and automatic restore when [tmux](https://github.com/tmux/tmux) is started.  
+- [christoomey/vim-tmux-navigator](https://github.com/christoomey/vim-tmux-navigator) - Navigate between [tmux](https://github.com/tmux/tmux) panes.
+- [jimeh/tmux-themepack](https://github.com/jimeh/tmux-themepack) - Collection of [tmux](https://github.com/tmux/tmux) themes.
 
 ### Neovim
 
@@ -133,13 +122,16 @@ install/Linux/install.sh
 - [wbthomason/packer.nvim](https://github.com/wbthomason/packer.nvim) - Plugin manager for NeoVim.
 - [nvim-lua/popup.nvim](https://github.com/nvim-lua/popup.nvim) - An implementation of the Popup API from vim in NeoVim.
 - [nvim-lua/plenary.nvim](https://github.com/nvim-lua/plenary.nvim) - Useful lua functions used by a lots of plugins.
-- [numToStr/Comment.nvim](https://github.com/numToStr/Comment.nvim) - Easily comment lines and blocks.
+- [ishan9299/nvim-solarized-lua](ishan9299/nvim-solarized-lua) -- Dark solarized theme.
 - [windwp/nvim-autopairs](https://github.com/windwp/nvim-autopairs) - Autopairs, integrates with both cmp and treesitter.
-- [akinsho/bufferline.nvim](https://github.com/akinsho/bufferline.nvim) - Nice bufferline.
-- [moll/vim-bbye](https://github.com/moll/vim-bbye) - Plugin preventig from quitting after closing last buffer.
 - [andweeb/presence.nvim](https://github.com/andweeb/presence.nvim) - Discord rich presence integration.
-- [nvim-lualine/lualine.nvim](https://github.com/nvim-lualine/lualine.nvim) - Fast and easy to configure NeoVim statusline plugin.
 - [kkoomen/vim-doge](https://github.com/kkoomen/vim-doge) - Documentation generator, generate proper code documentation skeletons with a single keypress.
-- [wojciechkepka/vim-github-dark](https://github.com/wojciechkepka/vim-github-dark) - A dark GitHub theme for Vim and NeoVim.
-- [mbbill/undotree](https://github.com/mbbill/undotree) - Simple undo history visualizer.
 - [ThePrimeagen/harpoon](https://github.com/ThePrimeagen/harpoon) - Jump directly to files.
+- [moll/vim-bbye](https://github.com/moll/vim-bbye) - Plugin preventig from quitting after closing last buffer.
+- [mbbill/undotree](https://github.com/mbbill/undotree) - Simple undo history visualizer.
+- [christoomey/vim-tmux-navigator](https://github.com/christoomey/vim-tmux-navigator) - tmux and split windows navigation.
+- [szw/vim-maximizer](https://github.com/szw/vim-maximizer) - Allows split windows to be maximized.
+- [tpope/vim-obsession](https://github.com/tpope/vim-obsession) - Continuously updated session files.
+- [tpope/vim-surround](https://github.com/tpope/vim-surround) - Provides mappings to easily delete, change and add "surroundings" in pairs.
+- [nvim-lualine/lualine.nvim](https://github.com/nvim-lualine/lualine.nvim) - Fast and easy to configure NeoVim statusline plugin.
+- [numToStr/Comment.nvim](https://github.com/numToStr/Comment.nvim) - Easily comment lines and blocks.
