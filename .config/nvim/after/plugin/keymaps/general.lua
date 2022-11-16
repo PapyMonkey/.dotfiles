@@ -6,23 +6,20 @@ local xnoremap = Remap.xnoremap
 local nmap = Remap.nmap
 
 -- Windows & tab management --
-	-- Better window navigation
-	nnoremap("<C-h>", "<C-w>h")
-	nnoremap("<C-j>", "<C-w>j")
-	nnoremap("<C-k>", "<C-w>k")
-	nnoremap("<C-l>", "<C-w>l")
-
 	-- Resize with arrows
 	nnoremap("<C-Up>", ":resize +2<CR>")
 	nnoremap("<C-Down>", ":resize -2<CR>")
 	nnoremap("<C-Left>", ":vertical resize -2<CR>")
 	nnoremap("<C-Right>", ":vertical resize +2<CR>")
 
-	-- Manage windows
-	nnoremap("<leader>v", ":vsplit<CR>")
+	-- Split windows
+	nnoremap("<leader>sv", "<C-w>v") -- split windows vertically
+	nnoremap("<leader>sh", "<C-w>s") -- split windows horizontally
+	nnoremap("<leader>se", "<C-w>=") -- make split windows equal width
+	nnoremap("<leader>sx", ":close<CR>") -- close current splitd window
 
 	-- Manage buffers
-    nnoremap("<leader>x", ":Bw<CR>")
+    nnoremap("<leader>bx", ":Bw<CR>")
 	--[[ nnoremap("<leader>x", ":bp | sp | bn | bd<CR>") ]]
 
 	-- Navigate buffers
@@ -45,9 +42,6 @@ local nmap = Remap.nmap
 	xnoremap("K", ":move '<-2<CR>gv-gv")
 	xnoremap("<A-j>", ":move '>+1<CR>gv-gv")
 	xnoremap("<A-k>", ":move '<-2<CR>gv-gv")
-
-nnoremap("<leader>pv", ":Ex<CR>")
-nnoremap("<leader>u", ":UndotreeShow<CR>")
 
 vnoremap("J", ":m '>+1<CR>gv=gv")
 vnoremap("K", ":m '<-2<CR>gv=gv")
@@ -72,8 +66,12 @@ vnoremap("<leader>d", "\"_d")
 
 vnoremap("<leader>d", "\"_d")
 
--- This is going to get me cancelled
-inoremap("<C-c>", "<Esc>")
+-- Plugin keymaps
+
+nnoremap("<leader>pv", ":Ex<CR>")
+nnoremap("<leader>u", ":UndotreeShow<CR>")
+
+inoremap("<C-c>", "<Esc>") -- This is going to get me cancelled. -Prime
 
 nnoremap("Q", "<nop>")
 nnoremap("<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")

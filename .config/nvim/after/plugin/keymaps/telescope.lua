@@ -21,19 +21,16 @@ end
 
 _G.find_dotfiles = function()
     local i, dotfiles_array = 0, {}
-    local dotfiles_ls = io.popen("dot ls-files")
+    local dotfiles_ls = io.popen("cd ~ && /usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME ls-files")
     for filename in dotfiles_ls:lines() do
         i = i + 1
         dotfiles_array[i] = filename
         print(filename)
     end
     dotfiles_ls:close()
-    dotfiles_array = {"$HOME/.vim", "$HOME/.config"}
 
     builtin.find_files {
-        --[[ search_dirs=dotfiles_array ]]
-        search_file={dotfiles_array}
-        --[[ search_dirs={"$HOME/.vim"} ]]
+        search_dirs=dotfiles_array
     }
 end
 

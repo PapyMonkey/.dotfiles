@@ -12,7 +12,8 @@ local options = {
 	writebackup = false,						-- if a file is being edited by another program (or was written to file while editing with another program), it is not allowed to be edited
 
 	hlsearch = true,							-- highlight all matches on previous search pattern
-	ignorecase = false,							-- ignore case in search patterns
+	ignorecase = true,							-- ignore case in search patterns
+	smartcase = true,							-- smart case in search patterns
 
 	termguicolors = true,						-- set term gui colors (most terminals support this)
 
@@ -20,7 +21,8 @@ local options = {
 	softtabstop = 4,							-- insert 4 spaces for a softtab
 	shiftwidth = 4,								-- the number of spaces inserted for each indentation
 	expandtab = true,							-- convert tabs to spaces
-	showtabline = 2,                            -- always show tabs
+
+	showtabline = 0,                            -- show tabs line
 
 	smartcase = true,                           -- smart case
 	smartindent = true,                         -- make indenting smarter adgain
@@ -41,13 +43,13 @@ local options = {
 	completeopt = { "menuone", "noselect" }, 	-- mostly just for cmp
 	conceallevel = 0,                           -- so that `` is visible in markdown files
 	fileencoding = "utf-8",						-- the encoding written to a file
-	-- mouse = "a",								-- allow the mouse to be used in neovim
+	mouse = "a",								-- allow the mouse to be used in neovim
 	pumheight = 10,								-- pop up menu height
 	showmode = false,                           -- we don't need to see things like -- INSERT -- anymore
 	splitbelow = true,                          -- force all horizontal splits to go below current window
 	splitright = true,                          -- force all vertical splits to go to the right of current window
 	timeoutlen = 1000,                          -- time to wait for a mapped sequence to complete (in milliseconds)
-	cursorline = true,                          -- highlight the current line
+	cursorline = true,                         -- highlight the current line
 	guifont = "monospace:h17",					-- the font used in graphical neovim applications
 	background = "dark",
 }

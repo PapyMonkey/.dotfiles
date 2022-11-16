@@ -43,17 +43,28 @@ return packer.startup(function(use)
 	-- My plugins here
 	use "wbthomason/packer.nvim"	-- Have packer manage itself
 	use "nvim-lua/popup.nvim"	-- An implementation of the Popup API from vim in Neovim
-	use "nvim-lua/plenary.nvim"	-- Useful lua functions used ny lots of plugins
+	use "nvim-lua/plenary.nvim"	-- Useful lua functions used by lots of plugins
+    use 'ishan9299/nvim-solarized-lua' -- Dark solarized theme
 	use "windwp/nvim-autopairs" -- Autopairs, integrates with both cmp and treesitter
-	use "akinsho/bufferline.nvim" -- Nice bufferline
 	use "andweeb/presence.nvim" -- Discord rich presence integration
+	use "kkoomen/vim-doge" -- Documentation generator
 	use "ThePrimeagen/harpoon" -- Jump directly to files
 	use "tpope/vim-obsession" -- Continuously updated session files 
-	use "moll/vim-bbye" -- Close buffers without closing windows
+	use "tpope/vim-surround" -- Provides mappings to easily delete, change and add "surroundings" in pairs
+    use "moll/vim-bbye" -- Close buffers without closing windows
 	use "mbbill/undotree" -- Simple undo history visualizer
-
-	-- Themes
-	use 'wojciechkepka/vim-github-dark'
+	use "christoomey/vim-tmux-navigator" -- tmux and split windows navigation
+	use "szw/vim-maximizer" -- Allows split windows to be maximized
+	use {   -- Powerline bar
+	  "nvim-lualine/lualine.nvim",
+	  requires = { "kyazdani42/nvim-web-devicons", opt = true }
+	}
+	use {   -- Easily comment stuff
+		'numToStr/Comment.nvim', 
+		config = function()
+			require('Comment').setup()
+		end
+	}
 
 	-- 42
 	use 'vim-syntastic/syntastic' -- Norminette dependency
@@ -78,8 +89,6 @@ return packer.startup(function(use)
 	use "williamboman/nvim-lsp-installer" -- simple to use language server installer
 
 	-- Telescope
-	use "nvim-telescope/telescope.nvim"
-	use "nvim-telescope/telescope-media-files.nvim"
     use {
         "nvim-telescope/telescope-fzf-native.nvim",
         run = "make"
@@ -89,9 +98,11 @@ return packer.startup(function(use)
         requires = {"nvim-telescope/telescope.nvim"},
         config = function()
             require("neoclip").setup()
-        end,
+        end
     }
-    use { "nvim-telescope/telescope-file-browser.nvim" }
+    use "nvim-telescope/telescope-file-browser.nvim"
+	use "nvim-telescope/telescope-media-files.nvim"
+	use "nvim-telescope/telescope.nvim"
 
 	-- Treesitter
 	use {
@@ -112,23 +123,6 @@ return packer.startup(function(use)
         'sindrets/diffview.nvim',
         requires = 'nvim-lua/plenary.nvim'
     }
-
-	-- Doge
-	use "kkoomen/vim-doge"
-
-	-- Comment toggler
-	use {
-		'numToStr/Comment.nvim', -- Easily comment stuff
-		config = function()
-			require('Comment').setup()
-		end
-	}
-
-	-- Powerline
-	--[[ use {
-	  "nvim-lualine/lualine.nvim",
-	  requires = { "kyazdani42/nvim-web-devicons", opt = true }
-	} ]]
 
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
