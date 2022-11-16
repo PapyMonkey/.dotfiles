@@ -80,9 +80,19 @@ zstyle ':omz:update' mode reminder  # just remind me to update when it's time
 # ------------------------------------------------------------------------------
 # PLUGINS
 
-source $ZSH/oh-my-zsh.sh
+plugins=(
+    git
+    zsh-z
+    zsh-autosuggestions
+    zsh-syntax-highlighting
+    web-search
+    tmux 
+    history
+)
 
-plugins=(git zsh-z)
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=10"
+
+source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
