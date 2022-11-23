@@ -12,12 +12,17 @@ mapfile -t SCREENS < \
     <(xrandr | grep "connected" | grep -v "disconnected" | sed "s/\s.*$//g")\
     && SCREENS=("${SCREENS[@]:1}")
 
-printf "What do you want to do [(c)onnect/(d)isconnect] ? "; read -r CHOICE
+printf "What do you want to do [(c)onnect/(i)nverted connect/(d)isconnect] ? "; read -r CHOICE
 
 if [ "$CHOICE" == 'c' ]
 then
     xrandr --output "${SCREENS[0]}" --mode "${MODE}" --above eDP-1
     xrandr --output "${SCREENS[1]}" --mode "${MODE}" --right-of "${SCREENS[0]}"
+fi
+if [ "$CHOICE" == 'i' ]
+then
+    xrandr --output "${SCREENS[1]}" --mode "${MODE}" --above eDP-1
+    xrandr --output "${SCREENS[0]}" --mode "${MODE}" --right-of "${SCREENS[1]}"
 fi
 if [ "$CHOICE" == 'd' ]
 then
