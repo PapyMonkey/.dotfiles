@@ -22,10 +22,6 @@ local nmap = Remap.nmap
     nnoremap("<leader>bx", ":Bw<CR>")
 	--[[ nnoremap("<leader>x", ":bp | sp | bn | bd<CR>") ]]
 
-	-- Navigate buffers
-	nnoremap("<S-l>", ":bnext<CR>")
-	nnoremap("<S-h>", ":bprevious<CR>")
-
 -- Text manipulation --
 	-- Stay in indent mode
 	vnoremap("<", "<gv")

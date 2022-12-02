@@ -95,8 +95,9 @@ install/MacOS/install.sh
 
 #### LSP
 
+- [williamboman/mason](https://github.com/williamboman/mason) Plugin to manage LSP servers.
+- [williamboman/mason-lspconfig](https://github.com/williamboman/mason-lspconfig) Dependency plugin.
 - [NeoVim/nvim-lspconfig](https://github.com/neovim/nvim-lspconfig) - Quickstart configurations for the neovim LSP client.
-- [williamboman/nvim-lsp-installer](https://github.com/williamboman/nvim-lsp-installer) Plugin to manage LSP servers.
 
 #### Completion
 

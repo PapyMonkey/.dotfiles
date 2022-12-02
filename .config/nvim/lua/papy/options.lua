@@ -20,7 +20,7 @@ local options = {
 	tabstop = 4,								-- insert 4 spaces for a tab
 	softtabstop = 4,							-- insert 4 spaces for a softtab
 	shiftwidth = 4,								-- the number of spaces inserted for each indentation
-	expandtab = true,							-- convert tabs to spaces
+	expandtab = false,							-- convert tabs to spaces
 
 	showtabline = 0,                            -- show tabs line
 
