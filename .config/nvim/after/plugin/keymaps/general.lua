@@ -59,7 +59,7 @@ nmap("<leader>Y", "\"+Y")
 
 -- NOTE : Prime keybind, not used for DoGe
 --[[ nnoremap("<leader>d", "\"_d") ]]
---[[ vnoremap("<leader>d", "\"_d") ]]
+--[[ vnoremap("<lDogeGenerateeader>d", "\"_d") ]]
 
 --[[ vnoremap("<leader>d", "\"_d") ]]
 

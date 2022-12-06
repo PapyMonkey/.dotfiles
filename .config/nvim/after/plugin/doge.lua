@@ -1,6 +1,3 @@
---[[ local Remap = require("papy.keymaps") ]]
---[[ local nnoremap = Remap.nnoremap ]]
-
 local doge_options = {
 	-- Mappings
 	doge_mapping = "<Leader>z",
@@ -17,6 +14,3 @@ local doge_options = {
 for key, value in pairs(doge_options) do
 	vim.g[key] = value
 end
-
--- Exeptionnaly putting remap here
---[[ nnoremap("<leader>d", ":DogeGenerate<CR>") ]]
