@@ -47,7 +47,6 @@ return packer.startup(function(use)
     use 'ishan9299/nvim-solarized-lua' -- Dark solarized theme
     use "windwp/nvim-autopairs" -- Autopairs, integrates with both cmp and treesitter
     use "andweeb/presence.nvim" -- Discord rich presence integration
-    use "kkoomen/vim-doge" -- Documentation generator
     use "ThePrimeagen/harpoon" -- Jump directly to files
     use "tpope/vim-obsession" -- Continuously updated session files 
     use "tpope/vim-surround" -- Provides mappings to easily delete, change and add "surroundings" in pairs
@@ -57,11 +56,15 @@ return packer.startup(function(use)
     use "szw/vim-maximizer" -- Allows split windows to be maximized
     use { "nvim-lualine/lualine.nvim", requires = { "kyazdani42/nvim-web-devicons", opt = true } } -- Powerline bar
     use {   -- Easily comment stuff
-        'numToStr/Comment.nvim', 
+        'numToStr/Comment.nvim',
         config = function()
             require('Comment').setup()
         end
     }
+	use {
+		"kkoomen/vim-doge", -- Documentation generator
+		run = ":call doge#install()"
+	}
 
     -- 42
     use "vim-syntastic/syntastic" -- Norminette dependency

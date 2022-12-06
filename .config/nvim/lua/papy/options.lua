@@ -24,7 +24,6 @@ local options = {
 
 	showtabline = 0,                            -- show tabs line
 
-	smartcase = true,                           -- smart case
 	smartindent = true,                         -- make indenting smarter adgain
 
 	wrap = false,                               -- display lines as one long line

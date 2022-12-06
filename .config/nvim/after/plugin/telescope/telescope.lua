@@ -26,7 +26,7 @@ telescope.setup {
 				["<Up>"] = actions.move_selection_previous,
 
 				["<CR>"] = actions.select_default,
-				["<C-x>"] = actions.select_horizontal,
+				["<C-h>"] = actions.select_horizontal,
 				["<C-v>"] = actions.select_vertical,
 				["<C-t>"] = actions.select_tab,
 
@@ -42,12 +42,14 @@ telescope.setup {
 				["<M-q>"] = actions.send_selected_to_qflist + actions.open_qflist,
 				["<C-l>"] = actions.complete_tag,
 				["<C-_>"] = actions.which_key, -- keys from pressing <C-/>
+
+				['<C-x>'] = actions.delete_buffer
 			},
 
 			n = {
 				["<esc>"] = actions.close,
 				["<CR>"] = actions.select_default,
-				["<C-x>"] = actions.select_horizontal,
+				["<C-h>"] = actions.select_horizontal,
 				["<C-v>"] = actions.select_vertical,
 				["<C-t>"] = actions.select_tab,
 
@@ -91,14 +93,14 @@ telescope.setup {
 	},
     pickers = {
         buffers = {
-            initial_mode = "normal",
+            initial_mode = "insert",
             sort_lastused = true,
         },
         grep_string = {
             initial_mode = "insert",
         },
         oldfiles = {
-            initial_mode = "normal",
+            initial_mode = "insert",
             sort_lastused = true,
         },
         find_files = {
@@ -111,10 +113,10 @@ telescope.setup {
             },
         },
         resume = {
-            initial_mode = "normal",
+            initial_mode = "insert",
         },
         pickers = {
-            initial_mode = "normal",
+            initial_mode = "insert",
         },
     },
     extensions = {

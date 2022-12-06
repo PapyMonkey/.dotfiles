@@ -46,6 +46,8 @@ nnoremap("<leader>pt", builtin.treesitter)
 nnoremap("<leader>pr", builtin.resume)
 nnoremap("<leader>pa", builtin.pickers)
 
+-- Buffers
+
 nnoremap("<leader>pp", ":Telescope neoclip<CR>")
 
 --[[ nnoremap("<leader>d", builtin.lsp_definitions) ]]

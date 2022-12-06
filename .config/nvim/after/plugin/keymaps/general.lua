@@ -16,10 +16,10 @@ local nmap = Remap.nmap
 	nnoremap("<leader>sv", "<C-w>v") -- split windows vertically
 	nnoremap("<leader>sh", "<C-w>s") -- split windows horizontally
 	nnoremap("<leader>se", "<C-w>=") -- make split windows equal width
-	nnoremap("<leader>sx", ":close<CR>") -- close current splitd window
+	nnoremap("<leader>sx", "<C-w>c") -- close current splitd window
 
 	-- Manage buffers
-    nnoremap("<leader>bx", ":Bw<CR>")
+    nnoremap("<leader>x", ":Bw<CR>")
 	--[[ nnoremap("<leader>x", ":bp | sp | bn | bd<CR>") ]]
 
 -- Text manipulation --
@@ -57,10 +57,11 @@ nnoremap("<leader>y", "\"+y")
 vnoremap("<leader>y", "\"+y")
 nmap("<leader>Y", "\"+Y")
 
-nnoremap("<leader>d", "\"_d")
-vnoremap("<leader>d", "\"_d")
+-- NOTE : Prime keybind, not used for DoGe
+--[[ nnoremap("<leader>d", "\"_d") ]]
+--[[ vnoremap("<leader>d", "\"_d") ]]
 
-vnoremap("<leader>d", "\"_d")
+--[[ vnoremap("<leader>d", "\"_d") ]]
 
 -- Plugin keymaps
 
