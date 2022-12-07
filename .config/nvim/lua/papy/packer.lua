@@ -117,7 +117,13 @@ return packer.startup(function(use)
     -- Git
     use "lewis6991/gitsigns.nvim"
     use { "sindrets/diffview.nvim", requires = "nvim-lua/plenary.nvim" }
-	use "APZelos/blamer.nvim" -- Git blamer (like VS-Code)
+	use "f-person/git-blame.nvim" -- Git blamer (like VS-Code)
+
+	-- Obsidian"
+	-- (optional) recommended for syntax highlighting, folding, etc if you're not using nvim-treesitter:
+	--[[ use "preservim/vim-markdown" ]]
+	--[[ use "godlygeek/tabular"  -- needed by 'preservim/vim-markdown' ]]
+	use "epwalsh/obsidian.nvim"
 
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
