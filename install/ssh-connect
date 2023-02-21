@@ -17,13 +17,6 @@ i=-1
 
 # ******************************** S C R I P T *********************************
 
-mkdir -p "$MOUNT_PATH"
-if [ "$(ls -A "$MOUNT_PATH")" ]
-then
-	printf "%s is not empty\n" "$MOUNT_PATH"
-	exit 42
-fi
-
 for host in "${HOST_ARR[@]}"
 do
 	((i+=1))

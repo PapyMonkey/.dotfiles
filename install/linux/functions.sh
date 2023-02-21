@@ -16,7 +16,7 @@ set_package_manager()
 		"$DISTRIB" == "Debian" ||\
 		"$DISTRIB" == "Mint" ]]
 	then
-		PKG_MANAGER="apt"
+		if [[ -z $PKG_MANAGER ]]; then PKG_MANAGER="apt"; fi
 	else
 		printf "Unknow distribution : %s\n" "$DISTRIB"
 		exit 42
@@ -52,6 +52,7 @@ print_failure()
 
 do_install()
 {
+	printf "\nInstallation de %s\n" "$1"
 	if type -p "$1" > /dev/null
 	then
 		print_already "$1"
@@ -68,6 +69,7 @@ do_install()
 
 do_install_custom()
 {
+	printf "\nInstallation de %s\n" "$1"
 	if $3
 	then
 		print_already "$1"
