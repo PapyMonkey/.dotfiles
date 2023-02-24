@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+
+# ***************************** V A R I A B L E S ******************************
+
+if [[ -z $MODE ]]; then
+    MODE="1920x1080"
+fi
+
+# ******************************** S C R I P T *********************************
+
+# mapfile -t SCREENS < \
+#     <(xrandr | grep "HDMI" | sed "s/\s.*$//g")\
+#     && SCREENS=("${SCREENS[@]:1}")
+
+SCREENS=$(xrandr | grep "DVI-I" | sed "s/\s.*$//g")
+
+printf "What do you want to do [(c)onnect/(d)isconnect] ? "; read -r CHOICE
+
+if [ "$CHOICE" == 'c' ]
+then
+    xrandr --output "${SCREENS}" --mode "${MODE}" --rate 160 --above eDP-1
+fi
+if [ "$CHOICE" == 'd' ]
+then
+    xrandr --output "${SCREENS}" --off
+fi
