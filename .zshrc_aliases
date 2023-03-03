@@ -27,7 +27,7 @@ alias catt="batcat"
 alias g=git
 
 # Bare git repo aliases for dotfiles management
-alias dot="/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"       
+alias dot="git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"       
 
 # Vim
 alias vi=nvim
