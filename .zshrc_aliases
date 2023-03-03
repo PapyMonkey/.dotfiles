@@ -1,6 +1,13 @@
 # Aliases
 # -> To be sourced in .zshrc
 
+# cd
+alias ..="cd .."
+alias ...="cd ../.."
+alias .3="cd ../../.."
+alias .4="cd ../../../.."
+alias .5="cd ../../../../.."
+
 # ls
 alias ls="ls -p -G --color=auto"
 alias la="ls -h -v -l -A --color=auto"
@@ -9,12 +16,17 @@ alias lla="ls -h -v -all --color=auto"
 alias lt="exa -T"
 # alias cd="z"
 
+# grep
+alias grep="grep --color=auto"
+
 # cat
 alias cat="batcat -p"
 alias catt="batcat"
 
 # Git
 alias g=git
+
+# Bare git repo aliases for dotfiles management
 alias dot="/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"       
 
 # Vim
@@ -23,6 +35,12 @@ alias vim=nvim
 
 # tmux
 unalias ta
+
+# adding flags
+alias cp="cp -i"			# confirm before overwritting something
+alias mv="mv -i"			# confirm before overwritting something
+alias rm="rm -i"			# confirm before overwritting something
+alias df="df -h"			# human-readable sizes
 
 # Pomodoro
 declare -A pomo_options

@@ -66,6 +66,9 @@ zstyle ':omz:update' mode reminder  # just remind me to update when it's time
 # ------------------------------------------------------------------------------
 # PLUGINS
 
+# 1password GitHub creditential plugin
+source ~/.config/op/plugins.sh
+
 plugins=(
     git
     zsh-z
