@@ -1,11 +1,15 @@
 bat
 curl
 exa
+feh
 figlet
 git
 hub
 i3
 i3lock
+polybar
+rofi
 speech-dispatcher
 tmux
+vifm
 zsh
