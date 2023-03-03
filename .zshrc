@@ -71,6 +71,7 @@ source ~/.config/op/plugins.sh
 
 plugins=(
     git
+    gitfast
     zsh-z
     zsh-autosuggestions
     zsh-syntax-highlighting
