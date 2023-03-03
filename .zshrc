@@ -1,28 +1,10 @@
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-# If you come from bash you might have to change your $PATH.
-export PATH=$HOME/bin:/usr/local/bin:$HOME/.local/bin:$PATH
-
-# Path to your oh-my-zsh installation.
-export ZSH="$HOME/.oh-my-zsh"
-
-# Path to deno installation.
-export DENO_INSTALL="/Users/papy/.deno"
-export PATH="$DENO_INSTALL/bin:$PATH"
-
-# Path to custom scripts
-export PATH=$PATH:$HOME/bin/.local/bin
-
-# include .zshrc_amadeus if it exists
-if [ -f $HOME/.zshrc_amadeus ]
-then
-    . $HOME/.zshrc_amadeus
-fi
+# include .zshrc_paths if it exists
+[ -f $HOME/.zshrc_paths ] && . $HOME/.zshrc_paths
 
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
