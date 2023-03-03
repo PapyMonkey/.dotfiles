@@ -3,7 +3,7 @@
 # ***************************** V A R I A B L E S ******************************
 
 if [[ -z $MODE ]]; then
-    MODE="2560x1440"
+    MODE="1920x1080"
 fi
 
 # ******************************** S C R I P T *********************************
@@ -17,12 +17,12 @@ printf "What do you want to do [(c)onnect/(i)nverted connect/(d)isconnect] ? "; 
 if [ "$CHOICE" == 'c' ]
 then
     xrandr --output "${SCREENS[0]}" --mode "${MODE}" --above eDP-1
-    xrandr --output "${SCREENS[1]}" --mode "${MODE}" --right-of "${SCREENS[0]}"
+    xrandr --output "${SCREENS[1]}" --mode "${MODE}" --left-of "${SCREENS[0]}" --rotation left
 fi
 if [ "$CHOICE" == 'i' ]
 then
     xrandr --output "${SCREENS[1]}" --mode "${MODE}" --above eDP-1
-    xrandr --output "${SCREENS[0]}" --mode "${MODE}" --right-of "${SCREENS[1]}"
+    xrandr --output "${SCREENS[0]}" --mode "${MODE}" --left-of "${SCREENS[1]}" --rotation left
 fi
 if [ "$CHOICE" == 'd' ]
 then
