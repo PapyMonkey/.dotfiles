@@ -30,6 +30,7 @@ local options = {
 
 	clipboard = "unnamedplus",					-- allows neovim to access the system clipboard
 
+	colorcolumn = "80",							-- show horizontal limit
 	scrolloff = 8,                              -- is one of my fav
 	sidescrolloff = 8,
 	numberwidth = 4,                            -- set number column width to 2 {default 4}

@@ -1,3 +1,8 @@
+local status_ok, Harpoon = pcall(require, "harpoon")
+if not status_ok then
+    return
+end
+
 local nnoremap = require("papy.keymaps").nnoremap
 
 local silent = { silent = true }

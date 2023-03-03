@@ -67,8 +67,8 @@ return packer.startup(function(use)
 	}
 
     -- 42
-    use "vim-syntastic/syntastic" -- Norminette dependency
-    use "alexandregv/norminette-vim" -- 42 mandatory 'norminette'
+    --[[ use "vim-syntastic/syntastic" -- Norminette dependency ]]
+    --[[ use "alexandregv/norminette-vim" -- 42 mandatory 'norminette' ]]
     use "42Paris/42header"	-- 42 mandatory header
 
     -- cmp plugins
@@ -78,7 +78,7 @@ return packer.startup(function(use)
     use "hrsh7th/cmp-cmdline" -- cmdline completions
     use "hrsh7th/cmp-nvim-lsp" -- for autocompletion
     use "hrsh7th/cmp-nvim-lua"
-     use "saadparwaiz1/cmp_luasnip" -- snippet completions
+    use "saadparwaiz1/cmp_luasnip" -- snippet completions
 
     -- snippets
     use "L3MON4D3/LuaSnip" --snippet engine

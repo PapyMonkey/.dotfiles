@@ -21,7 +21,6 @@ mason.setup {
 mason_lspconfig.setup {
     ensure_installed = {
         "arduino_language_server",
-        "bashls",
         "clangd",
         "cmake",
         "cssls",
@@ -30,7 +29,7 @@ mason_lspconfig.setup {
         "ltex",
         "marksman",
         "pyright",
-        "sumneko_lua",
+        "lua_ls",
         "vimls"
     }
 }
