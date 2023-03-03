@@ -1,0 +1,27 @@
+configuration
+{
+	font: "hack 12";
+
+	/* General settings */
+	modi: "window,drun,ssh,combi";
+	combi-modi: "window,drun,ssh";
+	ssh-client: "ssh";
+	cycle: false;
+	click-to-exit: false;
+
+	/* Keybindings;*/
+	kb-row-up: "Control+k";
+	kb-row-down: "Control+j";
+	kb-accept-entry: "Return,KP_Enter";
+	/* terminal: mate-terminal; */
+	kb-remove-to-eol: "Control+Shift+e";
+	kb-mode-next: "Control+l";
+	kb-mode-previous: "Control+h";
+	kb-remove-char-back: "BackSpace";
+
+	/* Cosmetic */
+	display-combi: "Launcher";
+}
+
+/* Theme : */
+@import "/usr/share/rofi/themes/glue_pro_blue.rasi"
