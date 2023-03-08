@@ -4,240 +4,271 @@
 # Should you change your keyboard layout some time, delete
 # this file and re-run i3-config-wizard(1).
 #
-
 # i3 config file (v4)
 #
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
-set $mod Mod1
+# ______________________________________________________________________________
+#  ____        __ _       _ _   _				
+# |  _ \  ___ / _(_)_ __ (_) |_(_) ___  _ __  ___
+# | | | |/ _ \ |_| | '_ \| | __| |/ _ \| '_ \/ __|
+# | |_| |  __/  _| | | | | | |_| | (_) | | | \__ \
+# |____/ \___|_| |_|_| |_|_|\__|_|\___/|_| |_|___/
+# ______________________________________________________________________________
+
+set $mod			Mod1
+set $ctrl			Control
+set $term			i3-sensible-terminal
+set $refresh_status	killall -SIGUSR1 i3status
+
+# Gaps
+set $inner_gaps		15
+set $outer_gaps		12
+
+# Workspaces
+set $ws1			"0: Fun"
+set $ws2			"1: Work"
+set $ws3			"2: Terminal"
+set $ws4			"3: Misc"
+set $ws5			"4: Social"
+set $ws6			"5"
+set $ws7			"6"
+set $ws8			"7"
+set $ws9			"8: Tools"
+set $ws10			"9: Music"
+
+# Volume
+set $volume_up		--no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5%
+set $volume_down	--no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5%
+set $volume_mute	--no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
+set $mic_mute		--no-startup-id pactl set-source-mute @DEFAULT_SOURCE@\
+					toggle
+
+# Brightness
+set $bright_up		/usr/bin/xbacklight -inc 10
+set $bright_down	/usr/bin/xbacklight -dec 5
+
+# i3lock setup
+set $Locker			i3lock\
+					--ignore-empty-password\
+					--show-failed-attempts\
+					-c 000000\
+					-i $HOME/.config/i3/data/weigth.png\
+					&& sleep 1
+
+# ______________________________________________________________________________
+#  ____  _           _ _                 
+# | __ )(_)_ __   __| (_)_ __   __ _ ___ 
+# |  _ \| | '_ \ / _` | | '_ \ / _` / __|
+# | |_) | | | | | (_| | | | | | (_| \__ \
+# |____/|_|_| |_|\__,_|_|_| |_|\__, |___/
+#                              |___/     
+# ______________________________________________________________________________
+
+# Basic bindings
+bindsym $mod+Return				exec $term
+# bindsym $mod+d				exec dmenu_run
+bindsym $mod+Shift+q			kill
+bindsym $mod+Shift+c			reload
+bindsym $mod+Shift+r			restart
+# bindsym $mod+Shift+e			
+
+# Letter key bindings
+bindsym $mod+h					focus left
+bindsym $mod+j					focus down
+bindsym $mod+k					focus up
+bindsym $mod+l					focus right
+bindsym $mod+Shift+h			move left
+bindsym $mod+Shift+j			move down
+bindsym $mod+Shift+k			move up
+bindsym $mod+Shift+l			move right
+
+# Layouts
+bindsym $mod+z					split h
+bindsym $mod+v					split v
+bindsym $mod+f					fullscreen toggle
+bindsym $mod+s					layout stacking
+bindsym $mod+w					layout tabbed
+bindsym $mod+e					layout toggle split
+bindsym $mod+Shift+space		floating toggle
+
+# Focus
+bindsym $mod+space				focus mode_toggle
+bindsym $mod+a					focus parent
+#bindsym $mod+d					focus child
+
+# Volume : use pactl to adjust volume in PulseAudio.
+bindsym XF86AudioRaiseVolume	exec $volume_up		&& $refresh_status
+bindsym XF86AudioLowerVolume	exec $volume_down	&& $refresh_status
+bindsym XF86AudioMute			exec $volume_mute	&& $refresh_status
+bindsym XF86AudioMicMute		exec $mic_mute		&& $refresh_status
+
+# Brightness keys
+bindsym XF86MonBrightnessUp		exec $bright_up
+bindsym XF86MonBrightnessDown	exec $bright_down
+
+# Alt tab behaviour
+bindsym $mod+Tab				workspace back_and_forth
+
+# Workspaces
+bindsym $mod+1					workspace $ws1
+bindsym $mod+2					workspace $ws2
+bindsym $mod+3					workspace $ws3
+bindsym $mod+4					workspace $ws4
+bindsym $mod+5					workspace $ws5
+bindsym $mod+6					workspace $ws6
+bindsym $mod+7					workspace $ws7
+bindsym $mod+8					workspace $ws8
+bindsym $mod+9					workspace $ws9
+bindsym $mod+0					workspace $ws10
+bindsym $mod+Shift+1			move container to workspace $ws1
+bindsym $mod+Shift+2			move container to workspace $ws2
+bindsym $mod+Shift+3			move container to workspace $ws3
+bindsym $mod+Shift+4			move container to workspace $ws4
+bindsym $mod+Shift+5			move container to workspace $ws5
+bindsym $mod+Shift+6			move container to workspace $ws6
+bindsym $mod+Shift+7			move container to workspace $ws7
+bindsym $mod+Shift+8			move container to workspace $ws8
+bindsym $mod+Shift+9			move container to workspace $ws9
+bindsym $mod+Shift+0			move container to workspace $ws10
+bindsym $mod+$ctrl+j			move workspace to output down
+bindsym $mod+$ctrl+h			move workspace to output left
+bindsym $mod+$ctrl+k			move workspace to output up
+bindsym $mod+$ctrl+l			move workspace to output right
+
+# Resize window (mouse can also be used for that)
+bindsym $mod+r					mode "resize"
+mode "resize" {
+        # Pressing left will shrink the window’s width.
+        # Pressing right will grow the window’s width.
+        # Pressing up will shrink the window’s height.
+        # Pressing down will grow the window’s height.
+        bindsym h				resize shrink width 10 px or 10 ppt
+        bindsym j				resize grow height 10 px or 10 ppt
+        bindsym k				resize shrink height 10 px or 10 ppt
+        bindsym l				resize grow width 10 px or 10 ppt
+
+        # same bindings, but for the arrow keys
+        bindsym Left			resize shrink width 10 px or 10 ppt
+        bindsym Down			resize grow height 10 px or 10 ppt
+        bindsym Up				resize shrink height 10 px or 10 ppt
+        bindsym Right			resize grow width 10 px or 10 ppt
+
+        # back to normal: Enter or Escape or $mod+r
+        bindsym Return			mode "default"
+        bindsym Escape			mode "default"
+}
+
+# Rofi
+bindsym $mod+g						exec rofi \
+										-show window \
+										-show-icons
+
+bindsym $mod+d						exec rofi \
+										-combi-modi window#drun \
+										-show combi \
+										-modi combi \
+										-show-icons
+
+bindsym $mod+$ctrl+Delete			exec rofi \
+										-show power-menu \
+										-modi power-menu:rofi-power-menu \
+										-no-fixed-num-lines -width 10
+
+bindsym $mod+n						exec rofi-i3-resurrect
+
+bindsym $mod+XF86AudioLowerVolume	exec rofi \
+										-show run
+
+# ______________________________________________________________________________
+#  ____       _   _   _                 
+# / ___|  ___| |_| |_(_)_ __   __ _ ___ 
+# \___ \ / _ \ __| __| | '_ \ / _` / __|
+#  ___) |  __/ |_| |_| | | | | (_| \__ \
+# |____/ \___|\__|\__|_|_| |_|\__, |___/
+#                             |___/     
+# ______________________________________________________________________________
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:monospace 10
-
-# Background setup
-exec --no-startup-id \
-	nitrogen --set-auto $HOME/.config/i3/data/weigth.png --head=0
-
-# This font is widely installed, provides lots of unicode glyphs, right-to-left
-# text rendering and scalability on retina/hidpi displays (thanks to pango).
-#font pango:DejaVu Sans Mono 8
-
-# i3lock setup
-set $Locker i3lock\
-	--ignore-empty-password\
-	--show-failed-attempts\
-	-c 000000\
-	-i $HOME/.config/i3/data/weigth.png\
-	&& sleep 1
-
-# The combination of xss-lock, nm-applet and pactl is a popular choice, so
-# they are included here as an example. Modify as you see fit.
-
-# xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
-# screen before suspend. Use loginctl lock-session to lock your screen.
-exec --no-startup-id xss-lock --transfer-sleep-lock -- $Locker --nofork
-
-# NetworkManager is the most popular way to manage wireless networks on Linux,
-# and nm-applet is a desktop environment-independent system tray GUI for it.
-exec --no-startup-id nm-applet
-
-# Multiple screen setup
-exec --no-startup-id xrandr --output DP-1-1 --mode 2560x1440 --above eDP-1
-exec --no-startup-id xrandr --output DP-2 --mode 2560x1440 --right-of DP-1-1
-
-# Use pactl to adjust volume in PulseAudio.
-set $refresh_i3status killall -SIGUSR1 i3status
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% && $refresh_i3status
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% && $refresh_i3status
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
-bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
-
-# Brightness keys
-bindsym XF86MonBrightnessUp exec /usr/bin/xbacklight -inc 10
-bindsym XF86MonBrightnessDown exec /usr/bin/xbacklight -dec 5
-
-# Use Mouse+$mod to drag floating windows to their wanted position
-floating_modifier $mod
+font pango:Hack Nerd 10
 
 # remap CapsLock to Esc
 exec_always --no-startup-id xmodmap -e "clear lock"
 exec_always --no-startup-id xmodmap -e "keycode 66 = Escape NoSymbol Escape"
 
+# Spiral layout
+# Needs i3ipc (`$>pip3 install i3ipc`)
+exec_always --no-startup-id $HOME/.local/scripts/alternating_layouts.py
+
+# Gaps
+# smart_gaps on
+# gaps inner $inner_gaps
+# gaps outer $outer_gaps
+
+# Use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
+
+# Border management
+hide_edge_borders smart
+
+# Pop-up management
+popup_during_fullscreen smart
+for_window [window_role="pop-up"] floating enable
+for_window [window_role="task_dialog"] floating enable
+
+# Automatic back-and-forth when switching to the current workspace
+workspace_auto_back_and_forth no
+
+# Background setup
+exec --no-startup-id nitrogen --set-auto $HOME/.config/i3/data/weigth.png --head=0
+# exec --no-startup-id nitrogen --set-centered $HOME/.config/i3/data/weigth.png --head=-1
+
+# xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
+# screen before suspend. Use loginctl lock-session to lock your screen.
+exec --no-startup-id xss-lock --transfer-sleep-lock -- $Locker --nofork
+# auto lock the screen
+exec --no-startup-id "xautolock -detectsleep -time 3 -locker $Locker"
+
+# NetworkManager is the most popular way to manage wireless networks on Linux,
+# and nm-applet is a desktop environment-independent system tray GUI for it.
+exec --no-startup-id nm-applet
+
+# Authorization prompt (essentially for 1password-cli)
+exec_always --no-startup-id lxpolkit
+
+# Multiple screen setup
+# exec --no-startup-id xrandr --output DP-1-1 --mode 2560x1440 --above eDP-1
+# exec --no-startup-id xrandr --output DP-2 --mode 2560x1440 --right-of DP-1-1
+
 # enable tap-to-click on touchpad
 exec xinput set-prop "VEN_0488:00 0488:1024 Touchpad" "libinput Tapping Enabled" 1 # Dell laptop
 
-# auto lock the screen
-exec "xautolock -detectsleep -time 3 -locker $Locker"
+# Assign programs to workspaces
+assign		[class="^Brave-browser$"]									$ws1
+for_window	[class="^Brave-browser$" title="^Work$"] move to workspace	$ws2
+for_window	[class="^Brave-browser$" title="^Slack$"] move to workspace	$ws5
+assign		[class="^thunderbird$"]										$ws5
+assign		[class="^Microsoft Teams - Preview$"]						$ws5
+assign		[class="^discord$"]											$ws5
+assign		[class="^Signal$"]											$ws5
+assign		[class="Vmware - view"]										$ws8
+assign		[class="^Com.cisco.anyconnect.gui$"]						$ws9
+assign		[class="^1Password$"]										$ws9
+for_window	[class="Spotify"] move to workspace							$ws10
 
-# keybinding to lock screen
-bindsym $mod+Control+home exec --no-startup-id $Locker --no-fork
-bindsym $mod+Control+s exec --no-startup-id $Locker && systemctl suspend
+# Execute programs on startup
+exec		--no-startup-id brave
+exec		--no-startup-id thunderbird
+exec		--no-startup-id teams
+exec		--no-startup-id 1password
+exec		--no-startup-id cisco
 
-# start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+exec		--no-startup-id "i3_resurrect restore -w 1 --layout-only"
+exec		--no-startup-id "i3_resurrect restore -w 2 --layout-only"
+exec		--no-startup-id "i3_resurrect restore -w 5 --layout-only"
+exec		--no-startup-id "i3_resurrect restore -w 9 --layout-only"
 
-# kill focused window
-bindsym $mod+Shift+q kill
-
-# start dmenu (a program launcher)
-bindsym $mod+d exec dmenu_run
-# There also is the (new) i3-dmenu-desktop which only displays applications
-# shipping a .desktop file. It is a wrapper around dmenu, so you need that
-# installed.
-# bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
-
-# change focus
-bindsym $mod+h focus left
-bindsym $mod+j focus down
-bindsym $mod+k focus up
-bindsym $mod+l focus right
-
-# move focused window
-bindsym $mod+Shift+h move left
-bindsym $mod+Shift+j move down
-bindsym $mod+Shift+k move up
-bindsym $mod+Shift+l move right
-
-# split in horizontal orientation
-bindsym $mod+z split h
-
-# split in vertical orientation
-bindsym $mod+v split v
-
-# enter fullscreen mode for the focused container
-bindsym $mod+f fullscreen toggle
-
-# change container layout (stacked, tabbed, toggle split)
-bindsym $mod+s layout stacking
-bindsym $mod+w layout tabbed
-bindsym $mod+e layout toggle split
-
-# toggle tiling / floating
-bindsym $mod+Shift+space floating toggle
-
-# change focus between tiling / floating windows
-bindsym $mod+space focus mode_toggle
-
-# focus the parent container
-bindsym $mod+a focus parent
-
-# focus the child container
-#bindsym $mod+d focus child
-
-# Define names for default workspaces for which we configure key bindings later on.
-# We use variables to avoid repeating the names in multiple places.
-set $ws1 "1: Fun"
-set $ws2 "2: Work"
-set $ws3 "3: Terminal"
-set $ws4 "4: Misc"
-set $ws5 "5: Teams"
-set $ws6 "6: Social"
-set $ws7 "7"
-set $ws8 "8: VM"
-set $ws9 "9: VPN"
-set $ws10 "10: Music"
-
-# workspaces on screens
-workspace $ws3 output DVI-1-1
-workspace $ws5 output DVI-2
-workspace $ws8 output DVI-2
-
-# switch to workspace
-bindsym $mod+1 workspace $ws1
-bindsym $mod+2 workspace $ws2
-bindsym $mod+3 workspace $ws3
-bindsym $mod+4 workspace $ws4
-bindsym $mod+5 workspace $ws5
-bindsym $mod+6 workspace $ws6
-bindsym $mod+7 workspace $ws7
-bindsym $mod+8 workspace $ws8
-bindsym $mod+9 workspace $ws9
-bindsym $mod+0 workspace $ws10
-
-# move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace $ws1
-bindsym $mod+Shift+2 move container to workspace $ws2
-bindsym $mod+Shift+3 move container to workspace $ws3
-bindsym $mod+Shift+4 move container to workspace $ws4
-bindsym $mod+Shift+5 move container to workspace $ws5
-bindsym $mod+Shift+6 move container to workspace $ws6
-bindsym $mod+Shift+7 move container to workspace $ws7
-bindsym $mod+Shift+8 move container to workspace $ws8
-bindsym $mod+Shift+9 move container to workspace $ws9
-bindsym $mod+Shift+0 move container to workspace $ws10
-
-# alt tab behaviour
-bindsym $mod+Tab workspace back_and_forth
-
-# move focused workspace around screens
-bindsym $mod+Control+h move workspace to output left
-bindsym $mod+Control+j move workspace to output down
-bindsym $mod+Control+k move workspace to output up
-bindsym $mod+Control+l move workspace to output right
-
-# reload the configuration file
-bindsym $mod+Shift+c reload
-# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-bindsym $mod+Shift+r restart
-# exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
-
-# resize window (you can also use the mouse for that)
-mode "resize" {
-        # These bindings trigger as soon as you enter the resize mode
-
-        # Pressing left will shrink the window’s width.
-        # Pressing right will grow the window’s width.
-        # Pressing up will shrink the window’s height.
-        # Pressing down will grow the window’s height.
-        bindsym h resize shrink width 10 px or 10 ppt
-        bindsym j resize grow height 10 px or 10 ppt
-        bindsym k resize shrink height 10 px or 10 ppt
-        bindsym l resize grow width 10 px or 10 ppt
-
-        # same bindings, but for the arrow keys
-        bindsym Left resize shrink width 10 px or 10 ppt
-        bindsym Down resize grow height 10 px or 10 ppt
-        bindsym Up resize shrink height 10 px or 10 ppt
-        bindsym Right resize grow width 10 px or 10 ppt
-
-        # back to normal: Enter or Escape or $mod+r
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
-}
-
-bindsym $mod+r mode "resize"
-
-# System power tweaks
-set $mode_system System: (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
-mode "$mode_system" {
-    bindsym l exec --no-startup-id $Locker, mode "default"
-    bindsym e exec --no-startup-id i3-msg exit, mode "default"
-    bindsym s exec --no-startup-id $Locker && systemctl suspend, mode "default"
-    bindsym h exec --no-startup-id $Locker && systemctl hibernate, mode "default"
-    bindsym r exec --no-startup-id systemctl reboot, mode "default"
-    bindsym Shift+s exec --no-startup-id systemctl poweroff -i, mode "default"  
-
-    # back to normal: Enter or Escape
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
-}
-
-bindsym $mod+Control+Delete mode "$mode_system"
-
-# assign programs to workspaces
-assign [class="firefox"] $ws1
-assign [class="Thunderbird"] $ws4
-for_window [class="Thunderbird"] layout stacking
-assign [class="Microsoft Teams - Preview"] $ws5
-assign [class="discord"] $ws6
-assign [class="Vmware - view"] $ws8
-assign [class="Cisco AnyConnect Secure Mobility Client"] $ws9
-
-# Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
 bar {
-    output eDP-1
-    status_command i3status
+	i3bar_command ~/.config/polybar/launch.sh
 }
