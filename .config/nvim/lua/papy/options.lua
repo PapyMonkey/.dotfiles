@@ -1,5 +1,5 @@
 local options = {
-	guicursor = "",								-- set cursor
+	--[[ guicursor = "",								-- set cursor ]]
 
 	number = true,                              -- set numbered lines
 	relativenumber = true,						-- set relative numbered lines
