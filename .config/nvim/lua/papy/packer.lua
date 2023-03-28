@@ -56,11 +56,12 @@ return packer.startup(function(use)
     use "szw/vim-maximizer" -- Allows split windows to be maximized
     use { "nvim-lualine/lualine.nvim", requires = { "kyazdani42/nvim-web-devicons", opt = true } } -- Powerline bar
     use {   -- Easily comment stuff
-        'numToStr/Comment.nvim',
+        "numToStr/Comment.nvim",
         config = function()
             require('Comment').setup()
         end
     }
+    use "JoosepAlviste/nvim-ts-context-commentstring"
 	use {
 		"kkoomen/vim-doge", -- Documentation generator
 		run = ":call doge#install()"
@@ -100,14 +101,13 @@ return packer.startup(function(use)
             require("neoclip").setup()
         end
     }
-    use "nvim-telescope/telescope-file-browser.nvim"
     use "nvim-telescope/telescope-media-files.nvim"
     use "nvim-telescope/telescope.nvim"
+
 
     -- Treesitter
 	use { "nvim-treesitter/nvim-treesitter", run = ":TSUpdate", }
     use "p00f/nvim-ts-rainbow"
-    use "JoosepAlviste/nvim-ts-context-commentstring"
     use "nvim-treesitter/nvim-treesitter-context"
 
     -- NvimTree

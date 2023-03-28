@@ -8,7 +8,7 @@ local nnoremap = Remap.nnoremap
 
 local utils = require('telescope.utils')
 local builtin = require('telescope.builtin')
-local extensions = Telescope.extensions
+local extensions = require('telescope').extensions
 
 _G.project_files = function()
     local _, ret, _ = utils.get_os_command_output({ 'git', 'rev-parse', '--is-inside-work-tree' })
@@ -33,24 +33,24 @@ _G.find_dotfiles = function()
     dotfiles_ls:close()
 
     builtin.find_files {
-        search_dirs=dotfiles_array
+		prompt_title="Dotfiles",
+        search_dirs=dotfiles_array,
     }
 end
 
+nnoremap("<leader>pd", find_dotfiles)
 nnoremap("<leader>pf", project_files)
 nnoremap("<leader>pF", builtin.find_files)
-nnoremap("<leader>pd", find_dotfiles)
-nnoremap("<leader>pe", extensions.file_browser.file_browser)
 nnoremap("<leader>ps", builtin.live_grep)
 nnoremap("<leader>pw", builtin.grep_string)
 nnoremap("<leader>pb", builtin.buffers)
 nnoremap("<leader>po", builtin.oldfiles)
 nnoremap("<leader>pt", builtin.treesitter)
 nnoremap("<leader>pr", builtin.resume)
-nnoremap("<leader>pa", builtin.pickers)
+nnoremap("<leader>pR", builtin.pickers)
 
 -- Buffers
-nnoremap("<leader>pp", ":Telescope neoclip<CR>")
+nnoremap("<leader>pp", extensions.neoclip.neoclip)
 
 -- LSP
 --[[ nnoremap("<leader>ld", builtin.lsp_definitions) ]]
