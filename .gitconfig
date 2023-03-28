@@ -2,22 +2,30 @@
 	name = Anthony Guiri
 	email = exastir@icloud.com
 	signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMWRy24rinTzmAdnUbnq8WvIddTZ3B3DPsHHMHhwZD0h
+
 [commit]
 	gpgsign = true
+
 [gpg]
 	format = ssh
+
 [gpg "ssh"]
 	program = /opt/1Password/op-ssh-sign
+
 [core]
 	excludesfile = ~/.gitignore
 	editor = nvim
 	ignorecase = false
+
 [push]
 	default = simple
+
 [diff]
 	tool = nvimdiff
+
 [difftool]
 	prompt = false
+
 [color]
 	status = auto
 	diff = auto
@@ -25,6 +33,7 @@
 	interactive = auto
 	grep = auto
 	ui = auto
+
 [alias]
 	a = "!git status --short | peco | awk '{print $2}' | xargs git add"
 	d = difftool
