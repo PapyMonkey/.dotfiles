@@ -47,7 +47,7 @@ return packer.startup(function(use)
     use 'ishan9299/nvim-solarized-lua' -- Dark solarized theme
     use "windwp/nvim-autopairs" -- Autopairs, integrates with both cmp and treesitter
     use "andweeb/presence.nvim" -- Discord rich presence integration
-    use "ThePrimeagen/harpoon" -- Jump directly to files
+    --[[ use "ThePrimeagen/harpoon" -- Jump directly to files ]]
     use "tpope/vim-obsession" -- Continuously updated session files 
     use "tpope/vim-surround" -- Provides mappings to easily delete, change and add "surroundings" in pairs
     use "moll/vim-bbye" -- Close buffers without closing windows
@@ -105,7 +105,7 @@ return packer.startup(function(use)
     use "nvim-telescope/telescope.nvim"
 
     -- Treesitter
-    use { "nvim-treesitter/nvim-treesitter", run = ":TSUpdate", }
+	use { "nvim-treesitter/nvim-treesitter", run = ":TSUpdate", }
     use "p00f/nvim-ts-rainbow"
     use "JoosepAlviste/nvim-ts-context-commentstring"
     use "nvim-treesitter/nvim-treesitter-context"
@@ -124,6 +124,18 @@ return packer.startup(function(use)
 	--[[ use "preservim/vim-markdown" ]]
 	--[[ use "godlygeek/tabular"  -- needed by 'preservim/vim-markdown' ]]
 	use "epwalsh/obsidian.nvim"
+
+	-- LF
+    use {
+		"ptzz/lf.vim",
+		requires = {"voldikss/vim-floaterm"}
+	}
+
+	-- Todo
+	use {
+	  "folke/todo-comments.nvim",
+	  requires = "nvim-lua/plenary.nvim"
+	}
 
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
