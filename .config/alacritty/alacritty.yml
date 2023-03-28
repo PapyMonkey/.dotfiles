@@ -148,11 +148,11 @@ font:
   #style: Bold Italic
   # Nerd font
   normal:
-    family: Hack Nerd Font Mono
+    family: Hack Nerd Font
     style: regular
 
   # Point size
-  size: 10.0
+  size: 10
   # Offset is the extra space around each character. `offset.y` can be thought
   # of as modifying the line spacing, and `offset.x` as modifying the letter
   # spacing.
