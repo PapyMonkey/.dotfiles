@@ -18,7 +18,7 @@
 
 set $mod			Mod1
 set $ctrl			Control
-set $term			i3-sensible-terminal
+set $term			alacritty
 set $refresh_status	killall -SIGUSR1 i3status
 
 # Gaps
@@ -197,10 +197,6 @@ font pango:Hack Nerd 10
 exec_always --no-startup-id xmodmap -e "clear lock"
 exec_always --no-startup-id xmodmap -e "keycode 66 = Escape NoSymbol Escape"
 
-# Spiral layout
-# Needs i3ipc (`$>pip3 install i3ipc`)
-exec_always --no-startup-id $HOME/.local/scripts/alternating_layouts.py
-
 # Gaps
 # smart_gaps on
 # gaps inner $inner_gaps
@@ -230,22 +226,11 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- $Locker --nofork
 # auto lock the screen
 exec --no-startup-id "xautolock -detectsleep -time 3 -locker $Locker"
 
-# NetworkManager is the most popular way to manage wireless networks on Linux,
-# and nm-applet is a desktop environment-independent system tray GUI for it.
-exec --no-startup-id nm-applet
-
-# Authorization prompt (essentially for 1password-cli)
-exec_always --no-startup-id lxpolkit
-
-# Multiple screen setup
-# exec --no-startup-id xrandr --output DP-1-1 --mode 2560x1440 --above eDP-1
-# exec --no-startup-id xrandr --output DP-2 --mode 2560x1440 --right-of DP-1-1
-
 # enable tap-to-click on touchpad
 exec xinput set-prop "VEN_0488:00 0488:1024 Touchpad" "libinput Tapping Enabled" 1 # Dell laptop
 
 # Assign programs to workspaces
-assign		[class="^Brave-browser$"]									$ws1
+for_window	[class="^Brave-browser$" title="^Fun$"]	move to workspace	$ws1
 for_window	[class="^Brave-browser$" title="^Work$"] move to workspace	$ws2
 for_window	[class="^Brave-browser$" title="^Slack$"] move to workspace	$ws5
 assign		[class="^thunderbird$"]										$ws5
@@ -258,16 +243,7 @@ assign		[class="^1Password$"]										$ws9
 for_window	[class="Spotify"] move to workspace							$ws10
 
 # Execute programs on startup
-exec		--no-startup-id brave
-exec		--no-startup-id thunderbird
-exec		--no-startup-id teams
-exec		--no-startup-id 1password
-exec		--no-startup-id cisco
-
-exec		--no-startup-id "i3_resurrect restore -w 1 --layout-only"
-exec		--no-startup-id "i3_resurrect restore -w 2 --layout-only"
-exec		--no-startup-id "i3_resurrect restore -w 5 --layout-only"
-exec		--no-startup-id "i3_resurrect restore -w 9 --layout-only"
+exec	--no-startup-id $HOME/.local/scripts/wm_startup.sh
 
 bar {
 	i3bar_command ~/.config/polybar/launch.sh
