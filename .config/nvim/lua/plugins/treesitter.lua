@@ -78,11 +78,11 @@ return {
 					additional_vim_regex_highlighting = true,
 				},
 				indent = { enable = true, disable = { '' } },
-				--[[ rainbow = { ]]
-				--[[ 	enable = true, ]]
-				--[[ 	query = 'rainbow-parens', ]]
-				--[[ 	strategy = require('ts-rainbow').strategy.global, ]]
-				--[[ }, ]]
+				rainbow = {
+					enable = true,
+					query = 'rainbow-parens',
+					strategy = require('ts-rainbow').strategy.global,
+				},
 			}
 		end,
 	},

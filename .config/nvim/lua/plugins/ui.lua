@@ -7,18 +7,33 @@
 --
 --------------------------------------------------------------------------------
 return {
-    { -- Dark solarized theme
+	{ -- Dark solarized theme (old one, not loaded)
 		'ishan9299/nvim-solarized-lua',
+		cond = false,
 		lazy = false,
 		priority = 1000,
 		config = function()
 			local colorscheme = 'solarized'
-			local status_ok, solarized = pcall(vim.cmd, 'colorscheme ' .. colorscheme)
+			local status_ok, _ = pcall(vim.cmd, 'colorscheme ' .. colorscheme)
 			if not status_ok then
 				vim.notify('colorscheme ' .. colorscheme .. ' not found!')
 				return
 			end
 		end,
+	},
+
+	{ -- Dark solarized theme
+		'svrana/neosolarized.nvim',
+		cond = true,
+		lazy = false,
+		priority = 1000,
+		dependencies = {
+			'tjdevries/colorbuddy.nvim',
+		},
+		opts = {
+			comment_italics = true,
+			background_set = true,
+		},
 	},
 
 	{ -- Powerline
@@ -65,14 +80,12 @@ return {
 	{ -- Homepage
 		'goolord/alpha-nvim',
 		lazy = false,
-		priority = 950,
+		priority = 700,
 		dependencies = {
 			'nvim-tree/nvim-web-devicons',
 		},
 		config = function ()
-			require('alpha').setup(
-			require('alpha.themes.startify').config
-			)
+			require('alpha').setup(require'alpha.themes.startify'.config)
 		end
 	},
 
@@ -83,10 +96,10 @@ return {
 	},
 
 	-- Close buffers without closing windows
-    'moll/vim-bbye',
+	'moll/vim-bbye',
 
 	-- tmux and split windows navigation
-    'christoomey/vim-tmux-navigator',
+	'christoomey/vim-tmux-navigator',
 
 	-- Git decorations on left bar
 	'lewis6991/gitsigns.nvim',
@@ -94,6 +107,9 @@ return {
 	{ -- Zen mode
 		'folke/zen-mode.nvim',
 		lazy = true,
+		dependencies = {
+			'folke/twilight.nvim',
+		},
 		keys = { {'<leader>z', '<cmd>ZenMode<cr>', desc = 'Zen Mode'} },
 		opts = true,
 	},
@@ -124,4 +140,22 @@ return {
 			}
 		end,
 	},
+
+	{ -- auto-resize windows
+		'anuvyklack/windows.nvim',
+		event = 'WinNew',
+		dependencies = {
+			{ 'anuvyklack/middleclass' },
+			{ 'anuvyklack/animation.nvim', enabled = false },
+		},
+		keys = { { '<leader>Z', '<cmd>WindowsMaximize<cr>', desc = 'Zoom' } },
+		config = function()
+			vim.o.winwidth = 5
+			vim.o.equalalways = false
+			require('windows').setup({
+				animation = { enable = false, duration = 150 },
+			})
+		end,
+	},
+
 }
