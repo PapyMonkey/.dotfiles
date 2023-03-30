@@ -1,4 +1,4 @@
-local Remap = require("papy.keymaps")
+local Remap = require("core.keymaps_utils")
 local nnoremap = Remap.nnoremap
 local vnoremap = Remap.vnoremap
 local inoremap = Remap.inoremap
@@ -16,11 +16,10 @@ local nmap = Remap.nmap
 	nnoremap("<leader>sv", "<C-w>v") -- split windows vertically
 	nnoremap("<leader>sh", "<C-w>s") -- split windows horizontally
 	nnoremap("<leader>se", "<C-w>=") -- make split windows equal width
-	nnoremap("<leader>sx", "<C-w>c") -- close current splitd window
+	nnoremap("<leader>sx", "<C-w>c") -- close current splited window
 
 	-- Manage buffers
     nnoremap("<leader>x", ":Bw<CR>")
-	--[[ nnoremap("<leader>x", ":bp | sp | bn | bd<CR>") ]]
 
 -- Text manipulation --
 	-- Stay in indent mode
@@ -58,25 +57,16 @@ vnoremap("<leader>y", "\"+y")
 nmap("<leader>Y", "\"+Y")
 
 -- NOTE : Prime keybind, not used for DoGe
---[[ nnoremap("<leader>d", "\"_d") ]]
---[[ vnoremap("<lDogeGenerateeader>d", "\"_d") ]]
+-- nnoremap("<leader>d", "\"_d") ]]
+--[ vnoremap("<lDogeGenerateeader>d", "\"_d") ]]
 
 --[[ vnoremap("<leader>d", "\"_d") ]]
 
 -- Plugin keymaps
-
-nnoremap("<leader>pv", ":Ex<CR>")
-nnoremap("<leader>u", ":UndotreeShow<CR>")
-
 inoremap("<C-c>", "<Esc>") -- This is going to get me cancelled. -Prime
 
 nnoremap("Q", "<nop>")
 nnoremap("<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
-
---[[ nnoremap("<C-k>", "<cmd>cnext<CR>zz") ]]
---[[ nnoremap("<C-j>", "<cmd>cprev<CR>zz") ]]
---[[ nnoremap("<leader>k", "<cmd>lnext<CR>zz") ]]
---[[ nnoremap("<leader>j", "<cmd>lprev<CR>zz") ]]
 
 nnoremap("<leader>s", ":%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left>")
 nnoremap("<leader>X", "<cmd>!chmod +x %<CR>", { silent = true })

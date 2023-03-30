@@ -1,5 +1,5 @@
 local options = {
-	--[[ guicursor = "",								-- set cursor ]]
+	--[[ guicursor = '',								-- set cursor ]]
 
 	number = true,                              -- set numbered lines
 	relativenumber = true,						-- set relative numbered lines
@@ -28,42 +28,42 @@ local options = {
 
 	wrap = false,                               -- display lines as one long line
 
-	clipboard = "unnamedplus",					-- allows neovim to access the system clipboard
+	clipboard = 'unnamedplus',					-- allows neovim to access the system clipboard
 
-	colorcolumn = "80",							-- show horizontal limit
+	colorcolumn = '80',							-- show horizontal limit
 	scrolloff = 8,                              -- is one of my fav
 	sidescrolloff = 8,
 	numberwidth = 4,                            -- set number column width to 2 {default 4}
-	signcolumn = "yes",                         -- always show the sign column, otherwise it would shift the text each time
+	signcolumn = 'yes',                         -- always show the sign column, otherwise it would shift the text each time
 
 	cmdheight = 2,								-- more space in the neovim command line for displaying messages
 
 	updatetime = 50,                          	-- faster completion (4000ms default)
 
-	completeopt = { "menuone", "noselect" }, 	-- mostly just for cmp
+	completeopt = { 'menuone', 'noselect' }, 	-- mostly just for cmp
 	conceallevel = 0,                           -- so that `` is visible in markdown files
-	fileencoding = "utf-8",						-- the encoding written to a file
-	mouse = "a",								-- allow the mouse to be used in neovim
+	fileencoding = 'utf-8',						-- the encoding written to a file
+	mouse = 'a',								-- allow the mouse to be used in neovim
 	pumheight = 10,								-- pop up menu height
 	showmode = false,                           -- we don't need to see things like -- INSERT -- anymore
 	splitbelow = true,                          -- force all horizontal splits to go below current window
 	splitright = true,                          -- force all vertical splits to go to the right of current window
 	timeoutlen = 1000,                          -- time to wait for a mapped sequence to complete (in milliseconds)
 	cursorline = true,                         -- highlight the current line
-	guifont = "monospace:h17",					-- the font used in graphical neovim applications
-	background = "dark",
+	guifont = 'monospace:h17',					-- the font used in graphical neovim applications
+	background = 'dark',
 }
 
-vim.opt.shortmess:append "c"
+vim.opt.shortmess:append 'c'
 
 for k, v in pairs(options) do
 	vim.opt[k] = v
 end
 
 -- Leader key
-vim.g.mapleader = " "
-vim.g.maplocalleader = " "
+vim.g.mapleader = ' '
+vim.g.maplocalleader = ' '
 
-vim.cmd "set whichwrap+=<,>,[,],h,l"
+vim.cmd 'set whichwrap+=<,>,[,],h,l'
 vim.cmd [[set iskeyword+=-]]
 vim.cmd [[set formatoptions-=cro]] -- TODO: this doesn't seem to work
