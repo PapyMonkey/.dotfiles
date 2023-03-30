@@ -8,9 +8,9 @@
 --------------------------------------------------------------------------------
 return {
 	-- Continuously updated session files 
-    'tpope/vim-obsession',
+	'tpope/vim-obsession',
 
-    { -- Provides mappings to easily delete, change and add 'surroundings' in pairs
+	{ -- Provides mappings to easily delete, change and add 'surroundings' in pairs
 		'tpope/vim-surround',
 		lazy = true,
 		keys = {
@@ -18,30 +18,19 @@ return {
 		},
 	},
 
-    { -- Easily comment stuff
-        'numToStr/Comment.nvim',
+	{ -- Easily comment stuff
+		'numToStr/Comment.nvim',
 		lazy = false,
 		dependencies = {
 			'JoosepAlviste/nvim-ts-context-commentstring',
 		},
 		config = function()
 			require('Comment').setup {
-				pre_hook = function(ctx)
-					local U = require 'Comment.utils'
-					local location = nil
-					if ctx.ctype == U.ctype.block then
-						location = require('ts_context_commentstring.utils').get_cursor_location()
-					elseif ctx.cmotion == U.cmotion.v or ctx.cmotion == U.cmotion.V then
-						location = require('ts_context_commentstring.utils').get_visual_start_location()
-					end
-					return require('ts_context_commentstring.internal').calculate_commentstring {
-						key = ctx.ctype == U.ctype.line and '__default' or '__multiline',
-						location = location,
-					}
-				end,
+				ignore = '^$',
+				pre_hook = require('ts_context_commentstring.integrations.comment_nvim').create_pre_hook(),
 			}
 		end,
-    },
+	},
 
 
 	{ -- Documentation generator
@@ -71,14 +60,14 @@ return {
 		keys = { {'<leader>u', '<cmd>UndotreeToggle<cr>'}, desc = 'Undotree'},
 	},
 
-    { -- LF
+	{ -- LF
 		'ptzz/lf.vim',
 		lazy = true,
 		dependencies = {'voldikss/vim-floaterm'},
 		keys = { {'<leader>f', '<cmd>Lf<cr>'}, desc = 'Lf (file manager)'},
 	},
 
-    { -- Git : better diff
+	{ -- Git : better diff
 		'sindrets/diffview.nvim',
 		lazy = true,
 		dependencies = 'nvim-lua/plenary.nvim',
@@ -92,7 +81,7 @@ return {
 		keys = { { '<leader>gd', '<cmd>DiffviewOpen<cr>', desc = 'DiffView' } },
 	},
 
-    { -- Git : blame
+	{ -- Git : blame
 		'f-person/git-blame.nvim', -- Git blamer (like VS-Code)
 		config = function()
 			local blame_options = {
@@ -126,5 +115,4 @@ return {
 			nnoremap('<leader>go', ':GitBlameOpenCommitURL<CR>');
 		end,
 	},
-
 }
