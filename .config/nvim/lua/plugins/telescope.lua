@@ -61,22 +61,22 @@ return {
 	},
 	keys = {
 		{
-			'<leader>pd',
+			'<leader>pD',
 			function()
 				local i, dotfiles_array = 0, {}
-				local dotfiles_ls = io.popen('cd ~ && /usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME ls-files')
+				local dotfiles_ls = io.popen('/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME ls-files')
 				if not dotfiles_ls then
 					return
 				end
 				for filename in dotfiles_ls:lines() do
 					i = i + 1
 					dotfiles_array[i] = filename
-					print(filename)
 				end
 				dotfiles_ls:close()
 
 				require('telescope.builtin').find_files {
 					prompt_title='Dotfiles',
+					cwd = '$HOME',
 					search_dirs=dotfiles_array,
 				}
 			end,
