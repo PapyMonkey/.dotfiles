@@ -99,4 +99,23 @@ return {
 			}
 		end,
 	},
+
+	{
+		'nvim-neo-tree/neo-tree.nvim',
+		cmd = "Neotree",
+		keys = {
+			{ "<leader>E", '<cmd>Neotree<cr>', desc = 'NeoTree'},
+		},
+		dependencies = {
+			'nvim-lua/plenary.nvim',
+			'nvim-tree/nvim-web-devicons',
+			'MunifTanjim/nui.nvim',
+		},
+		opts = {
+			filesystem = {
+				follow_current_file = true,
+				hijack_netrw_behavior = "open_current",
+			},
+		},
+	}
 }
