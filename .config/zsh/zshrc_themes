@@ -1,0 +1,16 @@
+# ------------------------------------------------------------------------------
+#  _____ _                              
+# |_   _| |__   ___ _ __ ___   ___  ___ 
+#   | | | '_ \ / _ \ '_ ` _ \ / _ \/ __|
+#   | | | | | |  __/ | | | | |  __/\__ \
+#   |_| |_| |_|\___|_| |_| |_|\___||___/
+#
+# ------------------------------------------------------------------------------
+                                      
+# Theme installation
+[ ! -d ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/themes/powerlevel10k ] \
+	&& git clone --depth=1 https://github.com/romkatv/powerlevel10k.git \
+	${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k \
+	&>/dev/null
+
+ZSH_THEME="powerlevel10k/powerlevel10k"

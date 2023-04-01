@@ -3,10 +3,10 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 # include .zshrc_paths if it exists
-[ -f $HOME/.zshrc_themes ] && . $HOME/.zshrc_themes
+[ -f $HOME/.config/zsh/zshrc_paths ] && . $HOME/.config/zsh/zshrc_paths
 
 # include .zshrc_paths if it exists
-[ -f $HOME/.zshrc_paths ] && . $HOME/.zshrc_paths
+[ -f $HOME/.config/zsh/zshrc_themes ] && . $HOME/.config/zsh/zshrc_themes
 
 # init ruby environment
 eval "$(rbenv init -)"
@@ -22,7 +22,7 @@ zstyle ':omz:update' mode reminder
 DISABLE_UNTRACKED_FILES_DIRTY="true"
 
 # INCLUDE : .zshrc_plugins if it exists
-[ -f $HOME/.zshrc_plugins ] && . $HOME/.zshrc_plugins
+[ -f $HOME/.config/zsh/zshrc_plugins ] && . $HOME/.config/zsh/zshrc_plugins
 
 # INCLUDE : .oh-my-zsh if it exists
 [ -f $ZSH/oh-my-zsh.sh ] && . $ZSH/oh-my-zsh.sh
@@ -40,7 +40,7 @@ fi
 # ALIASES
 
 # INCLUDE : .zshrc_aliases if it exists
-[ -f $HOME/.zshrc_aliases ] && . $HOME/.zshrc_aliases
+[ -f $HOME/.config/zsh/zshrc_aliases ] && . $HOME/.config/zsh/zshrc_aliases
 
 # Set VIM commands mode
 bindkey -v
