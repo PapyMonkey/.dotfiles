@@ -1,27 +1,9 @@
 # ------------------------------------------------------------------------------
-#  ____       _   _         
-# |  _ \ __ _| |_| |__  ___ 
-# | |_) / _` | __| '_ \/ __|
-# |  __/ (_| | |_| | | \__ \
-# |_|   \__,_|\__|_| |_|___/
-                          
-# If you come from bash you might have to change your $PATH.
-export PATH=$HOME/bin:/usr/local/bin:$HOME/.local/bin:$PATH
-
-# General
-export EDITOR="nvim"
-export TERMINAL="alacritty"
-
-# oh-my-zsh installation
-export ZSH="$HOME/.oh-my-zsh"
-
-# Ruby env
-export PATH="$HOME/.rbenv/bin:$PATH"
-export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
-
-# Deno installation
-export DENO_INSTALL="/Users/papy/.deno"
-export PATH="$DENO_INSTALL/bin:$PATH"
+#
+# Shell sourcing file order :
+#	zshenv -> zprofile -> zshrc -> zlogin
+#
+# ------------------------------------------------------------------------------
 
 # confirmations, etc.) must go above this block; everything else may go below.
 export NVM_DIR="$HOME/.nvm"
@@ -42,9 +24,3 @@ else
 fi
 unset __conda_setup
 # <<< conda initialize <<<
-
-# Custom scripts
-. "$HOME/.cargo/env"
-
-# include .zshrc_amadeus 
-[ -f $HOME/.zshrc_amadeus ] && . $HOME/.zshrc_amadeus
