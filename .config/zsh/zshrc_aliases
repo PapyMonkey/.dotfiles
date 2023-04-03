@@ -40,7 +40,7 @@ alias vi=nvim
 alias vim=nvim
 
 # tmux
-# unalias ta
+unalias ta
 
 # adding flags
 alias cp="cp -i"			# confirm before overwritting something
