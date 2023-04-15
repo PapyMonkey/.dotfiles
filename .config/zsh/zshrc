@@ -61,8 +61,6 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 # INCLUDE : .zshrc_aliases if it exists
 [ -f $HOME/.config/zsh/zshrc_aliases ] && . $HOME/.config/zsh/zshrc_aliases
 
-bindkey -v # Set VIM commands mode
-
 bindkey '^R' history-incremental-search-backward # Recursive search
 
 # ------------------------------------------------------------------------------

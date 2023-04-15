@@ -7,6 +7,9 @@
 #                                  
 # ------------------------------------------------------------------------------
 
+# vim mode
+bindkey -v 
+
 # cd
 alias ..="cd .."
 alias ...="cd ../.."
@@ -14,12 +17,11 @@ alias .3="cd ../../.."
 alias .4="cd ../../../.."
 alias .5="cd ../../../../.."
 
-# ls
-alias ls="ls -p -G --color=auto"
-alias la="ls -h -v -l -A --color=auto"
-alias ll="ls -h -l --color=auto"
-alias lla="ls -h -v -all --color=auto"
-alias lt="exa -T"
+# changing ls to exa
+alias ls='exa -al --color=always --group-directories-first'
+alias la='exa -a --color=always --group-directories-first'
+alias ll='exa -l --color=always --group-directories-first'
+alias lt='exa -aT --color=always --group-directories-first'
 # alias cd="z"
 
 # grep
@@ -31,6 +33,7 @@ alias catt="batcat"
 
 # Git
 alias g=git
+alias lg=lazygit
 
 # Bare git repo aliases for dotfiles management
 alias dot="git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"       
