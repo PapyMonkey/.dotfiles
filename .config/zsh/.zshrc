@@ -29,14 +29,15 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 # include .zshrc_themes if it exists
-[ -f $HOME/.config/zsh/zshrc_themes ] && . $HOME/.config/zsh/zshrc_themes
+[ -f "$ZDOTDIR/.zshrc_themes" ] && source "$ZDOTDIR/.zshrc_themes"
 
 # ------------------------------------------------------------------------------
 # Settings
 
 eval "$(rbenv init -)" # init ruby environment
 
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)" # Homebrew
+[ -f "/home/linuxbrew/.linuxbrew/bin/brew" ]\
+	&& eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)" # Homebrew
 
 zstyle ':omz:update' mode reminder
 
@@ -50,21 +51,18 @@ fi
 DISABLE_UNTRACKED_FILES_DIRTY="true"
 
 # INCLUDE : .zshrc_plugins if it exists
-[ -f $HOME/.config/zsh/zshrc_plugins ] && . $HOME/.config/zsh/zshrc_plugins
+[ -f "$ZDOTDIR/.zshrc_plugins" ] && source "$ZDOTDIR/.zshrc_plugins"
 
 # INCLUDE : .oh-my-zsh if it exists
-[ -f $ZSH/oh-my-zsh.sh ] && . $ZSH/oh-my-zsh.sh
+[ -f "$ZSH/oh-my-zsh.sh" ] && source "$ZSH/oh-my-zsh.sh"
 
 # ------------------------------------------------------------------------------
 # Aliases
 
 # INCLUDE : .zshrc_aliases if it exists
-[ -f $HOME/.config/zsh/zshrc_aliases ] && . $HOME/.config/zsh/zshrc_aliases
-
-bindkey '^R' history-incremental-search-backward # Recursive search
+[ -f "$ZDOTDIR/.zshrc_aliases" ] && source "$ZDOTDIR/.zshrc_aliases"
 
 # ------------------------------------------------------------------------------
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
+[[ ! -f "$ZDOTDIR/.p10k.zsh" ]] || source "$ZDOTDIR/.p10k.zsh"
