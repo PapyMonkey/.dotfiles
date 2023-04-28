@@ -28,6 +28,11 @@
 # 1password GitHub creditential plugin
 [ -f $HOME/.config/op/plugins.sh ] && . $HOME/.config/op/plugins.sh
 
+# fzf
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh # Homebrew install
+[ -f /usr/share/fzf/key-bindings.zsh ] && source /usr/share/fzf/key-bindings.zsh # pacman install
+[ -f /usr/share/fzf/completion.zsh ] && source /usr/share/fzf/completion.zsh # pacman install
+
 plugins=(
     git
     gitfast

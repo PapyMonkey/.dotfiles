@@ -48,6 +48,9 @@ else
 	export EDITOR='nvim'
 fi
 
+# vim mode
+bindkey -v 
+
 DISABLE_UNTRACKED_FILES_DIRTY="true"
 
 # INCLUDE : .zshrc_plugins if it exists
@@ -55,9 +58,6 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 
 # INCLUDE : .oh-my-zsh if it exists
 [ -f "$ZSH/oh-my-zsh.sh" ] && source "$ZSH/oh-my-zsh.sh"
-
-# ------------------------------------------------------------------------------
-# Aliases
 
 # INCLUDE : .zshrc_aliases if it exists
 [ -f "$ZDOTDIR/.zshrc_aliases" ] && source "$ZDOTDIR/.zshrc_aliases"

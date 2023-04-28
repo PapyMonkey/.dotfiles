@@ -36,7 +36,4 @@ export PATH="$DENO_INSTALL/bin:$PATH"
 # Cargo
 [ -f $HOME/.cargo/env ] && source $HOME/.cargo/env
 
-# fzf
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
 export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
