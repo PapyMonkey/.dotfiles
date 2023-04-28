@@ -17,6 +17,7 @@ configuration
 	kb-remove-to-eol: "Control+Shift+e";
 	kb-mode-next: "Control+l";
 	kb-mode-previous: "Control+h";
+	kb-mode-complete: "Control+L";
 	kb-remove-char-back: "BackSpace";
 
 	/* Cosmetic */
