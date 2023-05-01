@@ -43,6 +43,10 @@ set $volume_down	--no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5%
 set $volume_mute	--no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
 set $mic_mute		--no-startup-id pactl set-source-mute @DEFAULT_SOURCE@\
 					toggle
+set $audio_play		--no-startup-id playerctl play-pause
+set $audio_next		--no-startup-id playerctl next
+set $audio_prev		--no-startup-id playerctl previous
+set $audio_stop		--no-startup-id playerctl stop
 
 # Brightness
 set $bright_up		/usr/bin/xbacklight -inc 10
@@ -103,6 +107,11 @@ bindsym XF86AudioRaiseVolume	exec $volume_up		&& $refresh_status
 bindsym XF86AudioLowerVolume	exec $volume_down	&& $refresh_status
 bindsym XF86AudioMute			exec $volume_mute	&& $refresh_status
 bindsym XF86AudioMicMute		exec $mic_mute		&& $refresh_status
+# Audio : use playerctl to control audio.
+bindsym XF86AudioPlay			exec $audio_play
+bindsym XF86AudioNext			exec $audio_next
+bindsym XF86AudioPrev			exec $audio_prev
+bindsym XF86AudioStop			exec $audio_stop
 
 # Brightness keys
 bindsym XF86MonBrightnessUp		exec $bright_up
