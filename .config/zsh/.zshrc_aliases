@@ -37,6 +37,7 @@ alias lg=lazygit
 
 # Bare git repo aliases for dotfiles management
 alias dot="git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"       
+alias dotlg="lazygit --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"       
 
 # Vim
 alias vi=nvim
