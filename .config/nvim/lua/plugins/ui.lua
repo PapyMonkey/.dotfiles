@@ -41,14 +41,15 @@ return {
 		lazy = false,
 		priority = 900,
 		dependencies = {
-			'nvim-tree/nvim-web-devicons',
-			opt = true
+			{'nvim-tree/nvim-web-devicons', opt = true},
+			{'Tsuzat/NeoSolarized.nvim'},
 		},
 		config = function()
 			require('lualine').setup {
 				options = {
 					icons_enabled = true,
-					theme = require('lualine.themes.solarized_dark'),
+					-- theme = require('lualine.themes.solarized_dark'),
+					theme = 'NeoSolarized',
 					component_separators = { left = '', right = ''},
 					section_separators = { left = '', right = ''},
 					disabled_filetypes = {},
@@ -101,9 +102,6 @@ return {
 	-- tmux and split windows navigation
 	'christoomey/vim-tmux-navigator',
 
-	-- Git decorations on left bar
-	'lewis6991/gitsigns.nvim',
-
 	{ -- Zen mode
 		'folke/zen-mode.nvim',
 		lazy = true,
@@ -143,6 +141,8 @@ return {
 
 	{ -- auto-resize windows
 		'anuvyklack/windows.nvim',
+		cond = false,
+		lazy = false,
 		event = 'WinNew',
 		dependencies = {
 			{ 'anuvyklack/middleclass' },

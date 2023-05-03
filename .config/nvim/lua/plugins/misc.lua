@@ -44,18 +44,15 @@ return {
 
 	{ -- Todo
 		'folke/todo-comments.nvim',
-		lazy = true,
+		lazy = false,
 		dependencies = {
 			'nvim-lua/plenary.nvim',
-			'nvim-telescope/telescope.nvim',
 		},
 		opts = true,
-		keys = { {'<leader>pn', '<cmd>TodoTelescope<cr>', desc = 'TODO list'} },
 	},
 
 	{ -- Simple undo history visualizer
 		'mbbill/undotree',
-		cond = false,
 		lazy = true,
 		keys = { {'<leader>u', '<cmd>UndotreeToggle<cr>'}, desc = 'Undotree'},
 	},

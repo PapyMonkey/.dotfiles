@@ -13,6 +13,7 @@ return {
 		{'nvim-lua/plenary.nvim'},
 		{'nvim-telescope/telescope-fzf-native.nvim', build = 'make'}, -- fzf integration
 		{'nvim-telescope/telescope-media-files.nvim'}, -- Media preview
+		{'folke/todo-comments.nvim'},
 		{'debugloop/telescope-undo.nvim'}, -- Undo tree
 		{
 			'AckslD/nvim-neoclip.lua',
@@ -30,6 +31,8 @@ return {
 					return true
 				end
 				require('neoclip').setup{
+					default_register = '+',
+					default_register_macros = 'q',
 					enable_persistent_history = true,
 					continuous_sync = true,
 					filter = function(data)
@@ -110,8 +113,9 @@ return {
 		{'<leader>gc',	'<cmd>Telescope git_bcommits<cr>'},
 		{'<leader>gs',	'<cmd>Telescope git_status<cr>'},
 		-- Extensions
-		{'<leader>u',	'<cmd>Telescope undo<cr>', desc = 'Telescope extension : undo'},
+		-- {'<leader>u',	'<cmd>Telescope undo<cr>', desc = 'Telescope extension : undo'},
 		{'<leader>pp',	'<cmd>Telescope neoclip<cr>', desc = 'Telescope extension : neoclip'},
+		{'<leader>pn',	'<cmd>TodoTelescope<cr>', desc = 'TODO list'},
 	},
 	config = function()
 		local actions = require 'telescope.actions'
@@ -250,7 +254,7 @@ return {
 		}
 		require('telescope').load_extension('media_files')
 		require('telescope').load_extension('fzf')
-		require('telescope').load_extension('undo')
+		-- require('telescope').load_extension('undo')
 		require('telescope').load_extension('neoclip')
 	end,
 }

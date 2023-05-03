@@ -81,6 +81,9 @@ return {
 						capabilities = capabilities,
 						single_file_support = true,
 						on_attach = on_attach,
+						settings = {
+							header_insertion = never,
+						},
 					}
 
 					-- configure cmake server
