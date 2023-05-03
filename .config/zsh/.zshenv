@@ -9,12 +9,20 @@
 export PATH=$HOME/bin:/usr/local/bin:$HOME/.local/bin:$PATH
 
 # Adds ~/.local/bin and subfolders to $PATH
-export PATH="$PATH:${$(find ~/.local/bin -maxdepth 1 -type d -printf %p:)%%:}"
+# export PATH="$PATH:${$(find ~/.local/bin -maxdepth 1 -type d -printf %p:)%%:}"
 
 # General
 export EDITOR="nvim"
 export TERMINAL="alacritty"
 export BROWSER="brave"
+
+# Manpager
+### bat
+export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+### vim
+# export MANPAGER='/bin/bash -c "vim -MRn -c \"set buftype=nofile showtabline=0 ft=man ts=8 nomod nolist norelativenumber nonu noma\" -c \"normal L\" -c \"nmap q :qa<CR>\"</dev/tty <(col -b)"'
+### nvim
+# export MANPAGER="nvim -c 'set ft=man' -"
 
 # Cleaning up home folder
 export XDG_CONFIG_HOME="$HOME/.config"

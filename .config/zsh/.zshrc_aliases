@@ -28,8 +28,8 @@ alias lt='exa -aT --color=always --group-directories-first'
 alias grep="grep --color=auto"
 
 # cat
-alias cat="batcat -p"
-alias catt="batcat"
+alias cat="bat -p"
+alias catt="bat"
 
 # Git
 alias g=git
