@@ -67,7 +67,7 @@ return {
 			'<leader>pD',
 			function()
 				local i, dotfiles_array = 0, {}
-				local dotfiles_ls = io.popen('/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME ls-files')
+				local dotfiles_ls = io.popen("/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME ls-files ':!:*.ttf'")
 				if not dotfiles_ls then
 					return
 				end
