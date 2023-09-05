@@ -60,7 +60,17 @@ return {
 	{ -- LF
 		'ptzz/lf.vim',
 		lazy = true,
-		dependencies = {'voldikss/vim-floaterm'},
+		dependencies = {
+			'voldikss/vim-floaterm',
+			config = function()
+				local options = {
+					floaterm_opener = 'edit',
+				}
+				for key, value in pairs(options) do
+					vim.g[key] = value
+				end
+			end
+		},
 		keys = { {'<leader>f', '<cmd>Lf<cr>'}, desc = 'Lf (file manager)'},
 	},
 
