@@ -12,20 +12,25 @@ mapfile -t SCREENS < \
     <(xrandr | grep "connected" | grep -v "disconnected" | sed "s/\s.*$//g")\
     && SCREENS=("${SCREENS[@]:1}")
 
-printf "What do you want to do [(c)onnect/(i)nverted connect/(d)isconnect] ? "; read -r CHOICE
+printf "What do you want to do :
+\t- (c)onnect
+\t- (i)nverted connect
+\t- (d)isconnect"
+printf "\nChoice ? "
+read -r CHOICE
 
 if [ "$CHOICE" == 'c' ]
 then
     xrandr --output "${SCREENS[0]}" --mode "${MODE}" --above eDP-1
     xrandr --output "${SCREENS[1]}" --mode "${MODE}" --left-of "${SCREENS[0]}" --rotation left
-fi
-if [ "$CHOICE" == 'i' ]
+elif [ "$CHOICE" == 'i' ]
 then
     xrandr --output "${SCREENS[1]}" --mode "${MODE}" --above eDP-1
     xrandr --output "${SCREENS[0]}" --mode "${MODE}" --left-of "${SCREENS[1]}" --rotation left
-fi
-if [ "$CHOICE" == 'd' ]
+elif [ "$CHOICE" == 'd' ]
 then
     xrandr --output "${SCREENS[0]}" --off
     xrandr --output "${SCREENS[1]}" --off
+else
+	echo "Error: unknown option"
 fi
