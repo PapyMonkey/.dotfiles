@@ -86,6 +86,28 @@ return {
 			desc = 'Dotfile picker',
 		},
 		{
+			'<leader>pS',
+			function()
+				local i, dotfiles_array = 0, {}
+				local dotfiles_ls = io.popen("/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME ls-files ':!:*.ttf'")
+				if not dotfiles_ls then
+					return
+				end
+				for filename in dotfiles_ls:lines() do
+					i = i + 1
+					dotfiles_array[i] = filename
+				end
+				dotfiles_ls:close()
+
+				require('telescope.builtin').live_grep {
+					prompt_title='Live grep in dotfiles',
+					cwd = '$HOME',
+					search_dirs=dotfiles_array,
+				}
+			end,
+			desc = 'Dotfile live grep',
+		},
+		{
 			'<leader>pf',
 			function()
 				local _, ret, _ = require('telescope.utils').get_os_command_output({ 'git', 'rev-parse', '--is-inside-work-tree' })
