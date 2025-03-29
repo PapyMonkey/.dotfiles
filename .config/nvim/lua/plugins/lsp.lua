@@ -48,7 +48,7 @@ return {
 						local opts = { noremap = true, silent = true, buffer = bufnr }
 
 						-- set keybinds
-						vim.keymap.set('n', 'gf', '<cmd>Lspsaga lsp_finder<CR>', opts) -- show definition, references
+						vim.keymap.set('n', 'gf', '<cmd>Lspsaga finder<CR>', opts) -- show definition, references
 						vim.keymap.set('n', 'gD', '<Cmd>lua vim.lsp.buf.declaration()<CR>', opts) -- got to declaration
 						vim.keymap.set('n', 'gd', '<cmd>Lspsaga peek_definition<CR>', opts) -- see definition and make edits in window
 						vim.keymap.set('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts) -- go to implementation
@@ -77,14 +77,14 @@ return {
 					}
 
 					-- configure c server
-					require('lspconfig')['clangd'].setup {
-						capabilities = capabilities,
-						single_file_support = true,
-						on_attach = on_attach,
-						settings = {
-							header_insertion = never,
-						},
-					}
+					-- require('lspconfig')['clangd'].setup {
+					-- 	capabilities = capabilities,
+					-- 	single_file_support = true,
+					-- 	on_attach = on_attach,
+					-- 	settings = {
+					-- 		header_insertion = never,
+					-- 	},
+					-- }
 
 					-- configure cmake server
 					require('lspconfig')['cmake'].setup {
@@ -94,6 +94,12 @@ return {
 
 					-- configure css server
 					require('lspconfig')['cssls'].setup {
+						capabilities = capabilities,
+						on_attach = on_attach,
+					}
+
+					-- configure go server
+					require('lspconfig')['gopls'].setup {
 						capabilities = capabilities,
 						on_attach = on_attach,
 					}
@@ -144,9 +150,10 @@ return {
 					'arduino_language_server',
 					'clangd',
 					'cmake',
-					'cssls',
-					'html',
-					'jsonls',
+					-- 'cssls',
+					'gopls',
+					-- 'html',
+					-- 'jsonls',
 					'ltex',
 					'marksman',
 					'pyright',
