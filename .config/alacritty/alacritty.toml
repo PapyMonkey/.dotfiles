@@ -29,8 +29,12 @@ white   = '#fdf6e3'
 TERM = "xterm-256color"
 
 [font]
-size = 10
+size = 14
 
 [font.normal]
 family = "Hack Nerd Font"
-style = "regular"
+style = "Regular"
+
+[window]
+decorations = "buttonless"
+startup_mode = "SimpleFullscreen"
