@@ -9,7 +9,7 @@
 return {
 	{ -- Dark solarized theme (old one, not loaded)
 		'ishan9299/nvim-solarized-lua',
-		cond = false,
+		cond = true,
 		lazy = false,
 		priority = 1000,
 		config = function()
@@ -22,19 +22,19 @@ return {
 		end,
 	},
 
-	{ -- Dark solarized theme
-		'svrana/neosolarized.nvim',
-		cond = true,
-		lazy = false,
-		priority = 1000,
-		dependencies = {
-			'tjdevries/colorbuddy.nvim',
-		},
-		opts = {
-			comment_italics = true,
-			background_set = true,
-		},
-	},
+	-- { -- Dark solarized theme
+	-- 	'svrana/neosolarized.nvim',
+	-- 	cond = true,
+	-- 	lazy = false,
+	-- 	priority = 1000,
+	-- 	dependencies = {
+	-- 		'tjdevries/colorbuddy.nvim',
+	-- 	},
+	-- 	opts = {
+	-- 		comment_italics = true,
+	-- 		background_set = true,
+	-- 	},
+	-- },
 
 	{ -- Powerline
 		'nvim-lualine/lualine.nvim',
