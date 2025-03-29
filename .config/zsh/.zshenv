@@ -41,6 +41,9 @@ export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
 export DENO_INSTALL="/Users/papy/.deno"
 export PATH="$DENO_INSTALL/bin:$PATH"
 
+# Macports
+export PATH=/opt/local/bin:/opt/local/sbin:$PATH
+
 # Cargo
 [ -f $HOME/.cargo/env ] && source $HOME/.cargo/env
 

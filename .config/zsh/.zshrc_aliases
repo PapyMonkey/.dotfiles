@@ -17,11 +17,11 @@ alias .3="cd ../../.."
 alias .4="cd ../../../.."
 alias .5="cd ../../../../.."
 
-# changing ls to exa
-alias ls='exa -al --color=always --group-directories-first'
-alias la='exa -a --color=always --group-directories-first'
-alias ll='exa -l --color=always --group-directories-first'
-alias lt='exa -aT --color=always --group-directories-first'
+# changing ls to eza
+alias ls='eza -al --color=always --group-directories-first'
+alias la='eza -a --color=always --group-directories-first'
+alias ll='eza -l --color=always --group-directories-first'
+alias lt='eza -aT --color=always --group-directories-first'
 # alias cd="z"
 
 # grep
@@ -44,25 +44,10 @@ alias vi=nvim
 alias vim=nvim
 
 # tmux
-unalias ta
+# unalias ta
 
 # adding flags
 alias cp="cp -i"			# confirm before overwritting something
 alias mv="mv -i"			# confirm before overwritting something
 alias rm="rm -i"			# confirm before overwritting something
 alias df="df -h"			# human-readable sizes
-
-# Pomodoro
-declare -A pomo_options
-pomo_options["work"]="45"
-pomo_options["break"]="10"
-pomodoro () {
-  if [ -n "$1" -a -n "${pomo_options["$1"]}" ]; then
-  val=$1
-  echo $val | lolcat
-  timer ${pomo_options["$val"]}m
-  spd-say "'$val' session done"
-  fi
-}
-alias wo="pomodoro 'work'"
-alias br="pomodoro 'break'"

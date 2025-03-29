@@ -32,6 +32,8 @@
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh # Homebrew install
 [ -f /usr/share/fzf/key-bindings.zsh ] && source /usr/share/fzf/key-bindings.zsh # pacman install
 [ -f /usr/share/fzf/completion.zsh ] && source /usr/share/fzf/completion.zsh # pacman install
+[ -f /opt/local/share/fzf/shell/key-bindings.zsh ] && source /opt/local/share/fzf/shell/key-bindings.zsh # macport install
+[ -f /opt/local/share/fzf/shell/completion.zsh ] && source /opt/local/share/fzf/shell/completion.zsh # macport install
 
 plugins=(
     git
