@@ -14,9 +14,6 @@ return {
 	},
 	{
 		'nvim-treesitter/nvim-treesitter',
-		dependencies = {
-			'HiPhish/nvim-ts-rainbow2',
-		},
 		config = function()
 			require ('nvim-treesitter.configs').setup {
 				ensure_installed = {
@@ -31,7 +28,6 @@ return {
 					'gitignore',
 					'go',
 					'graphql',
-					'help',
 					'html',
 					'http',
 					'java',
@@ -47,7 +43,6 @@ return {
 					'ninja',
 					'nix',
 					'norg',
-					'org',
 					'php',
 					'python',
 					'query',
@@ -78,11 +73,6 @@ return {
 					additional_vim_regex_highlighting = true,
 				},
 				indent = { enable = true, disable = { '' } },
-				rainbow = {
-					enable = true,
-					query = 'rainbow-parens',
-					strategy = require('ts-rainbow').strategy.global,
-				},
 			}
 		end,
 	},
