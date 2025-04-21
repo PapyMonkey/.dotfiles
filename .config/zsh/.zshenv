@@ -1,50 +1,50 @@
-# ------------------------------------------------------------------------------
-#
-# Shell sourcing file order :
-#	zshenv -> zprofile -> zshrc -> zlogin
-#
+# ~/.zshenv — Environment variables & PATH setup
 # ------------------------------------------------------------------------------
 
-# If you come from bash you might have to change your $PATH.
-export PATH=$HOME/bin:/usr/local/bin:$HOME/.local/bin:$PATH
+# 1) Base PATH (user binaries first)
+export PATH="$HOME/bin:/usr/local/bin:$HOME/.local/bin:$PATH"
 
-# Adds ~/.local/bin and subfolders to $PATH
-# export PATH="$PATH:${$(find ~/.local/bin -maxdepth 1 -type d -printf %p:)%%:}"
+# 2) Editors & terminal, only if installed
+if command -v nvim >/dev/null; then
+  export EDITOR="nvim"
+fi
+if command -v alacritty >/dev/null; then
+  export TERMINAL="alacritty"
+fi
+if command -v brave >/dev/null; then
+  export BROWSER="brave"
+fi
 
-# General
-export EDITOR="nvim"
-export TERMINAL="alacritty"
-export BROWSER="brave"
+# 3) MANPAGER: bat if available, then nvim, else less
+if command -v bat >/dev/null; then
+  export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+elif command -v nvim >/dev/null; then
+  export MANPAGER="nvim -c 'set ft=man' -"
+else
+  export MANPAGER="less"
+fi
 
-# Manpager
-### bat
-export MANPAGER="sh -c 'col -bx | bat -l man -p'"
-### vim
-# export MANPAGER='/bin/bash -c "vim -MRn -c \"set buftype=nofile showtabline=0 ft=man ts=8 nomod nolist norelativenumber nonu noma\" -c \"normal L\" -c \"nmap q :qa<CR>\"</dev/tty <(col -b)"'
-### nvim
-# export MANPAGER="nvim -c 'set ft=man' -"
+# 4) XDG Base Directories
+export XDG_CONFIG_HOME="${XDG_CONFIG_HOME:-$HOME/.config}"
+export XDG_DATA_HOME="${XDG_DATA_HOME:-$HOME/.local/share}"
+export XDG_STATE_HOME="${XDG_STATE_HOME:-$HOME/.local/state}"
+export XDG_CACHE_HOME="${XDG_CACHE_HOME:-$HOME/.cache}"
 
-# Cleaning up home folder
-export XDG_CONFIG_HOME="$HOME/.config"
-export XDG_DATA_HOME="$HOME/.local/share"
-export XDG_STATE_HOME="$HOME/.local/state"
-export XDG_CACHE_HOME="$HOME/.cache"
-
-# oh-my-zsh installation
-export ZSH="$HOME/.oh-my-zsh"
-
-# Ruby env
-export PATH="$HOME/.rbenv/bin:$PATH"
-export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
-
-# Deno installation
-export DENO_INSTALL="/Users/papy/.deno"
-export PATH="$DENO_INSTALL/bin:$PATH"
-
-# Macports
-export PATH=/opt/local/bin:/opt/local/sbin:$PATH
-
-# Cargo
-[ -f $HOME/.cargo/env ] && source $HOME/.cargo/env
-
+# 5) Tell Zsh where to find its config
 export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
+
+# 6) rbenv on macOS/Linux if present
+if [ -d "$HOME/.rbenv" ]; then
+  export PATH="$HOME/.rbenv/bin:$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
+fi
+
+# 7) MacPorts on macOS if present
+if [ -d "/opt/local/bin" ]; then
+  export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
+fi
+
+# 8) Cargo (Rust) environment
+if [ -f "$HOME/.cargo/env" ]; then
+  source "$HOME/.cargo/env"
+fi
+
