@@ -100,3 +100,20 @@ cmd zip ${{
     zip -r $1.zip $1
     rm -rf $1
 }}
+
+# ------------------------------------------------------------------------------
+# zoxide integration
+cmd z %{{
+    result="$(zoxide query --exclude "$PWD" "$@" | sed 's/\\/\\\\/g;s/"/\\"/g')"
+    lf -remote "send $id cd \"$result\""
+}}
+
+cmd zi ${{
+    result="$(zoxide query -i | sed 's/\\/\\\\/g;s/"/\\"/g')"
+    lf -remote "send $id cd \"$result\""
+}}
+
+cmd on-cd &{{
+    zoxide add "$PWD"
+}}
+# ------------------------------------------------------------------------------

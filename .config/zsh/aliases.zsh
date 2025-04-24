@@ -23,11 +23,17 @@ if command -v bat >/dev/null; then
 fi
 
 # Git & dotfiles management
-alias g='git'
-alias lg='lazygit'
 if command -v git >/dev/null; then
+  alias g='git'
   alias dot='git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
   alias dotlg='lazygit --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+fi
+if command -v lazygit >/dev/null; then
+  alias lg='lazygit'
+fi
+
+if command -v zoxide >/dev/null; then
+  alias cd='z'
 fi
 
 # Editors & utilities

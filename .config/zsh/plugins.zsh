@@ -20,3 +20,6 @@ source <(fzf --zsh)
 export NVM_COMPLETION=true
 export NVM_SYMLINK_CURRENT="true"
 zinit wait lucid light-mode for lukechilds/zsh-nvm
+
+# zoxide - smarter cd command
+eval "$(zoxide init zsh)"
