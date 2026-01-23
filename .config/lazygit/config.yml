@@ -1,9 +1,10 @@
+---
 gui:
-  showIcons: true # show NerdFont icons
+  nerdFontsVersion: "3"
 git:
-  paging:
-    colorArg: always
-    pager: delta --dark --paging=never
+  pagers:
+    - colorArg: always
+      pager: delta --dark --paging=never --line-numbers --hyperlinks --hyperlinks-file-link-format="lazygit-edit://{path}:{line}"
   log:
     showGraph: always
   overrideGpg: true
